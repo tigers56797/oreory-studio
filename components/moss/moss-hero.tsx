@@ -45,8 +45,11 @@ export function MossHero() {
               {copy.hero.badge}
             </div>
 
-            <h1 className="mt-6 text-[clamp(2rem,4.2vw,3.4rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
-              {copy.hero.headline}
+            <h1 className="product-hero-shine relative mt-6 text-[clamp(2rem,4.2vw,3.4rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
+              <span className="relative z-0">{copy.hero.headline}</span>
+              <span aria-hidden className="product-hero-shine-layer absolute inset-0">
+                {copy.hero.headline}
+              </span>
             </h1>
 
             <p className="mt-5 max-w-md text-[0.95rem] leading-7 text-foreground-muted sm:text-base sm:leading-8">
@@ -85,7 +88,7 @@ export function MossHero() {
               aria-hidden
               className="absolute top-1/2 left-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,var(--moss-glow),transparent_70%)] blur-2xl"
             />
-            <div className="relative flex items-end gap-[-40px]">
+            <div className="relative flex items-end gap-[-40px] soft-float">
               <div className="relative z-10 translate-x-4 sm:translate-x-8">
                 <MossPhoneMock src={mossMedia.heroPhone} alt="MOSS" />
               </div>

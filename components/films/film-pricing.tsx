@@ -24,20 +24,20 @@ export function FilmPricing() {
         </div>
 
         <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5">
-          <div className="overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-soft sm:rounded-[2rem]">
+          <div className="card-lift overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-soft sm:rounded-[2rem]">
             <MediaPlaceholder
               tone="film"
               src={filmPricingImages.left.src}
               alt={copy.leftAlt}
-              aspectClassName="aspect-[4/5] sm:aspect-[3/4]"
+              aspectClassName="aspect-square"
             />
           </div>
-          <div className="overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-soft sm:rounded-[2rem]">
+          <div className="card-lift overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-soft sm:rounded-[2rem]">
             <MediaPlaceholder
               tone="neutral"
               src={filmPricingImages.right.src}
               alt={copy.rightAlt}
-              aspectClassName="aspect-[4/5] sm:aspect-[3/4]"
+              aspectClassName="aspect-square"
             />
           </div>
         </div>

@@ -31,10 +31,23 @@ export type Dictionary = {
     en: string;
   };
   hero: {
+    eyebrow: string;
     headlineLine1: string;
     headlineLine2: string;
     description: string;
-    cta: string;
+    primaryCta: string;
+    secondaryCta: string;
+    floatLabels: {
+      ip: { label: string; value: string };
+      planet: { label: string; value: string };
+      anniversary: { label: string; value: string };
+      bottle: { label: string; value: string };
+    };
+    kodoLabels: {
+      focus: { label: string; value: string };
+      status: { label: string; value: string };
+      actions: { label: string; value: string };
+    };
   };
   featured: {
     eyebrow: string;
@@ -118,6 +131,7 @@ export type Dictionary = {
     works: {
       title: string;
       description: string;
+      cta: string;
       categories: Record<FilmWorkCategoryKey, string>;
       items: Record<FilmWorkTitleKey, string>;
     };
@@ -141,6 +155,17 @@ export type Dictionary = {
       leftAlt: string;
       rightAlt: string;
       cta: string;
+    };
+    testimonials: {
+      title: string;
+      description: string;
+      items: Array<{
+        name: string;
+        role: string;
+        quote: string;
+        rating: number;
+        initials: string;
+      }>;
     };
     contact: {
       title: string;

@@ -29,8 +29,8 @@ export function FilmContact({ title, description }: FilmContactProps) {
         </div>
 
         <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5">
-          <article className="rounded-[1.75rem] border border-border bg-surface px-6 py-7 text-left shadow-soft sm:rounded-[2rem] sm:px-7 sm:py-8">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border text-foreground-muted">
+          <article className="card-lift rounded-[1.75rem] border border-border bg-surface px-6 py-7 text-left shadow-soft sm:rounded-[2rem] sm:px-7 sm:py-8">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#06C755]/25 bg-[#06C755]/12 text-[#06C755]">
               <LineIcon className="h-5 w-5" />
             </div>
             <p className="mt-5 text-[11px] font-semibold tracking-[0.16em] text-foreground-subtle">
@@ -51,8 +51,8 @@ export function FilmContact({ title, description }: FilmContactProps) {
             </div>
           </article>
 
-          <article className="rounded-[1.75rem] border border-border bg-surface px-6 py-7 text-left shadow-soft sm:rounded-[2rem] sm:px-7 sm:py-8">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border text-foreground-muted">
+          <article className="card-lift rounded-[1.75rem] border border-border bg-surface px-6 py-7 text-left shadow-soft sm:rounded-[2rem] sm:px-7 sm:py-8">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#3B82F6]/25 bg-[#3B82F6]/12 text-[#3B82F6]">
               <MailIcon className="h-5 w-5" />
             </div>
             <p className="mt-5 text-[11px] font-semibold tracking-[0.16em] text-foreground-subtle">

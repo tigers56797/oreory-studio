@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
 import { Section } from "@/components/ui/section";
+import { homeFilmsMedia } from "@/lib/content/films";
 
 export function Films() {
   const { dictionary } = useLocale();
@@ -12,12 +13,13 @@ export function Films() {
   return (
     <Section id="films">
       <Container>
-        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14 xl:gap-16">
-          <div className="overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-card sm:rounded-[2rem]">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14 xl:gap-16">
+          <div className="card-lift mx-auto w-full max-w-[28rem] overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-card sm:rounded-[2rem] lg:mx-0 lg:max-w-none">
             <MediaPlaceholder
               tone="film"
+              src={homeFilmsMedia.image}
               alt={dictionary.films.title}
-              aspectClassName="aspect-[16/11] sm:aspect-[16/10]"
+              aspectClassName="aspect-square"
             />
           </div>
 

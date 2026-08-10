@@ -5,7 +5,7 @@ export type FeaturedContentConfig = {
   href: string;
   /** Visual tone for the media placeholder until real assets arrive */
   tone: "moss" | "kodo" | "film";
-  /** Optional banner image under /public */
+  /** Optional banner / composition image under /public */
   image?: string;
 };
 
@@ -16,20 +16,27 @@ export const featuredCatalog: FeaturedContentConfig[] = [
     tone: "moss",
     image: "/images/moss/moss-01.png",
   },
-  { id: "kodo", href: "/kodo", tone: "kodo" },
+  {
+    id: "kodo",
+    href: "/kodo",
+    tone: "kodo",
+    image: "/images/kodo/maincover2.png",
+  },
   {
     id: "film",
     href: "/films",
     tone: "film",
-    image: "/images/video/video-02.png",
+    image: "/images/video/hero-film.png",
   },
 ];
 
 /**
- * Homepage hero banner slides — currently MOSS + Film.
+ * Homepage hero carousel slides — architecture for MOSS / Kodo / Film.
+ * Currently all three are wired; composition visuals differ by tone.
  */
 export const heroBanners: FeaturedContentConfig[] = [
   featuredCatalog[0],
+  featuredCatalog[1],
   featuredCatalog[2],
 ];
 

@@ -12,7 +12,7 @@ export function Collaboration() {
   return (
     <Section id="collaboration">
       <Container>
-        <div className="rounded-[1.75rem] border border-border bg-surface px-6 py-10 shadow-card sm:rounded-[2rem] sm:px-10 sm:py-12 lg:px-14 lg:py-14">
+        <div className="card-lift rounded-[1.75rem] border border-border bg-surface px-6 py-10 shadow-card sm:rounded-[2rem] sm:px-10 sm:py-12 lg:px-14 lg:py-14">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-[clamp(1.55rem,3vw,2.35rem)] font-semibold leading-tight tracking-[-0.025em] text-foreground">
               {dictionary.collaboration.headline}

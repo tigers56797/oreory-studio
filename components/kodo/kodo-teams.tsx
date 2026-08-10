@@ -54,7 +54,7 @@ export function KodoTeams() {
             const item = copy.enterprise[key];
             return (
               <li key={key}>
-                <article className="h-full rounded-[1.5rem] border border-border bg-surface px-5 py-6 shadow-soft sm:rounded-[1.75rem]">
+                <article className="card-lift h-full rounded-[1.5rem] border border-border bg-surface px-5 py-6 shadow-soft sm:rounded-[1.75rem]">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--kodo-primary-muted)] bg-[var(--kodo-primary-soft)] text-[var(--kodo-primary)]">
                     {key === "enterprise" ? "⌂" : key === "integration" ? "⧉" : "↗"}
                   </div>

@@ -32,8 +32,11 @@ export function KodoHero() {
               </span>
             </div>
 
-            <h1 className="mt-6 text-[clamp(2.1rem,4.4vw,3.5rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-foreground">
-              {copy.headline}
+            <h1 className="product-hero-shine relative mt-6 text-[clamp(2.1rem,4.4vw,3.5rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-foreground">
+              <span className="relative z-0">{copy.headline}</span>
+              <span aria-hidden className="product-hero-shine-layer absolute inset-0">
+                {copy.headline}
+              </span>
             </h1>
 
             <p className="mt-5 max-w-md text-[0.95rem] leading-7 text-foreground-muted sm:text-base sm:leading-8">
@@ -60,7 +63,7 @@ export function KodoHero() {
           </div>
 
           <div className="animate-fade-up relative flex justify-center [animation-delay:80ms] lg:justify-end">
-            <div className="relative w-full max-w-[560px]">
+            <div className="relative w-full max-w-[560px] soft-float">
               <KodoDeviceMock src={kodoMedia.heroDesktop} />
               <div className="absolute -right-1 -bottom-6 sm:right-4 sm:bottom-[-1.5rem]">
                 <KodoDeviceMock variant="phone" src={kodoMedia.heroPhone} />

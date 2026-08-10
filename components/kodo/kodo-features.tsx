@@ -21,7 +21,7 @@ export function KodoFeatures() {
             const item = copy.items[key];
             return (
               <li key={key}>
-                <article className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-surface shadow-soft sm:rounded-[1.75rem]">
+                <article className="card-lift flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-surface shadow-soft sm:rounded-[1.75rem]">
                   <div className="aspect-[5/4] bg-[linear-gradient(160deg,#eef5ef_0%,#f7f8f6_55%,#e6efe8_100%)] p-4">
                     <div className="flex h-full items-end rounded-[1.1rem] border border-white/70 bg-white/70 p-3 shadow-soft">
                       <div className="w-full space-y-2">

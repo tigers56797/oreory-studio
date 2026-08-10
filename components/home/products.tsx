@@ -39,7 +39,7 @@ export function Products() {
               <a
                 key={product.key}
                 href={product.href}
-                className="group overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-card transition-[box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:shadow-[0_16px_44px_rgba(23,23,23,0.07)] sm:rounded-[2rem]"
+                className="card-lift group overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-card sm:rounded-[2rem]"
                 aria-label={copy.name}
               >
                 <div className="overflow-hidden">

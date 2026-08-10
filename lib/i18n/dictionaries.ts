@@ -16,11 +16,24 @@ const zhTW: Dictionary = {
     en: "EN",
   },
   hero: {
+    eyebrow: "獨立創意工作室",
     headlineLine1: "打造數位產品，",
     headlineLine2: "創造影像故事。",
     description:
-      "Oreory Studio 專注於數位產品設計與影像創作，\n透過設計與故事，創造有價值的體驗。",
-    cta: "探索我們的作品 →",
+      "Oreory Studio 專注於數位產品設計與影片剪輯，\n透過設計與內容，創造有價值的體驗。",
+    primaryCta: "探索作品 →",
+    secondaryCta: "了解工作室 →",
+    floatLabels: {
+      ip: { label: "收藏的 IP", value: "18 個" },
+      planet: { label: "回憶星球", value: "32 顆" },
+      anniversary: { label: "紀念日", value: "12 個" },
+      bottle: { label: "漂流瓶", value: "8 個" },
+    },
+    kodoLabels: {
+      focus: { label: "Focus 計時", value: "25:00" },
+      status: { label: "異常狀態", value: "即時" },
+      actions: { label: "待處理", value: "3 項" },
+    },
   },
   featured: {
     eyebrow: "FEATURED",
@@ -92,7 +105,7 @@ const zhTW: Dictionary = {
     tagline: "專注數位產品與影像創作的獨立工作室。",
     navigate: "導覽",
     contact: "聯繫",
-    email: "hello@oreory.studio",
+    email: "oreorystudioo@gmail.com",
     line: "LINE",
     rights: "© Oreory Studio. All rights reserved.",
   },
@@ -139,7 +152,8 @@ const zhTW: Dictionary = {
     },
     works: {
       title: "精選作品",
-      description: "看看素材如何被整理成完整的故事。",
+      description: "點擊下方連結，查看更多影片剪輯作品。",
+      cta: "查看我的作品 →",
       categories: {
         brand: "品牌形象影片",
         event: "活動紀錄",
@@ -192,6 +206,77 @@ const zhTW: Dictionary = {
       rightAlt: "影片剪輯方案圖二",
       cta: "開始詢價 →",
     },
+    testimonials: {
+      title: "來自合作對象的好評回饋",
+      description:
+        "每一段回饋，都是我們持續把影片做得更好的動力。感謝願意把素材與故事交給 Oreory Studio 的你們。",
+      items: [
+        {
+          name: "Anya",
+          role: "YouTube 創作者",
+          quote:
+            "素材很多又雜亂，剪完之後節奏變得很清楚，發布後觀看表現也明顯比較穩。",
+          rating: 5,
+          initials: "A",
+        },
+        {
+          name: "Ken",
+          role: "活動紀錄委託",
+          quote:
+            "演唱會素材量很大，還是整理得很有層次，重要時刻都有被好好保留下來。",
+          rating: 5,
+          initials: "K",
+        },
+        {
+          name: "Mina",
+          role: "品牌行銷",
+          quote:
+            "溝通很順，從初剪到修改都很有效率，成品也符合我們想要的品牌調性。",
+          rating: 5,
+          initials: "M",
+        },
+        {
+          name: "Leo",
+          role: "產品介紹影片",
+          quote:
+            "把原本平淡的錄影素材剪得更有重點，客戶提案時反應都很好。",
+          rating: 5,
+          initials: "L",
+        },
+        {
+          name: "Yuki",
+          role: "婚禮紀念影片",
+          quote:
+            "情緒與節奏拿捏得很好，家人看完都很感動，之後還會再找你們。",
+          rating: 5,
+          initials: "Y",
+        },
+        {
+          name: "Owen",
+          role: "訪談長影音",
+          quote:
+            "長影音最怕拖沓，這次剪輯很乾淨，重點清楚，觀眾也比較容易看完。",
+          rating: 5,
+          initials: "O",
+        },
+        {
+          name: "Sara",
+          role: "品牌形象影片",
+          quote:
+            "細節處理得很用心，字幕與轉場都剛剛好，整體質感比預期更好。",
+          rating: 5,
+          initials: "S",
+        },
+        {
+          name: "Jay",
+          role: "活動精華剪輯",
+          quote:
+            "交期準、修改也很快，幫忙把一整天的活動濃縮成好分享的短片。",
+          rating: 5,
+          initials: "J",
+        },
+      ],
+    },
     contact: {
       title: "有一支影片想製作？",
       description:
@@ -232,11 +317,24 @@ const en: Dictionary = {
     en: "EN",
   },
   hero: {
+    eyebrow: "Independent creative studio",
     headlineLine1: "Building digital products,",
     headlineLine2: "crafting visual stories.",
     description:
-      "Oreory Studio focuses on digital product design and visual storytelling, creating experiences of lasting value through design and narrative.",
-    cta: "Explore our work →",
+      "Oreory Studio focuses on digital product design and film editing,\ncreating meaningful experiences through design and content.",
+    primaryCta: "Explore work →",
+    secondaryCta: "About the studio →",
+    floatLabels: {
+      ip: { label: "Collected IP", value: "18" },
+      planet: { label: "Memory planets", value: "32" },
+      anniversary: { label: "Anniversaries", value: "12" },
+      bottle: { label: "Drift bottles", value: "8" },
+    },
+    kodoLabels: {
+      focus: { label: "Focus timer", value: "25:00" },
+      status: { label: "Exception status", value: "Live" },
+      actions: { label: "Open actions", value: "3" },
+    },
   },
   featured: {
     eyebrow: "FEATURED",
@@ -319,7 +417,7 @@ const en: Dictionary = {
     tagline: "An independent studio for digital products and visual storytelling.",
     navigate: "Navigate",
     contact: "Contact",
-    email: "hello@oreory.studio",
+    email: "oreorystudioo@gmail.com",
     line: "LINE",
     rights: "© Oreory Studio. All rights reserved.",
   },
@@ -366,7 +464,8 @@ const en: Dictionary = {
     },
     works: {
       title: "Selected work",
-      description: "See how footage becomes a complete story.",
+      description: "Follow the link below to view more film editing work.",
+      cta: "View my work →",
       categories: {
         brand: "Brand film",
         event: "Event recap",
@@ -419,6 +518,77 @@ const en: Dictionary = {
       leftAlt: "Film editing plan image 1",
       rightAlt: "Film editing plan image 2",
       cta: "Request a quote →",
+    },
+    testimonials: {
+      title: "Kind words from collaborators",
+      description:
+        "Every note of feedback helps us keep refining the craft. Thank you for trusting Oreory Studio with your footage and stories.",
+      items: [
+        {
+          name: "Anya",
+          role: "YouTube creator",
+          quote:
+            "My footage was messy — after the edit the pacing felt clear, and the published video performed more steadily.",
+          rating: 5,
+          initials: "A",
+        },
+        {
+          name: "Ken",
+          role: "Event documentation",
+          quote:
+            "Huge concert footage, still layered beautifully. The key moments were preserved with care.",
+          rating: 5,
+          initials: "K",
+        },
+        {
+          name: "Mina",
+          role: "Brand marketing",
+          quote:
+            "Smooth communication from first cut to revisions. The final piece matched our brand tone perfectly.",
+          rating: 5,
+          initials: "M",
+        },
+        {
+          name: "Leo",
+          role: "Product film",
+          quote:
+            "Turned plain recordings into a focused film. Clients responded really well in presentations.",
+          rating: 5,
+          initials: "L",
+        },
+        {
+          name: "Yuki",
+          role: "Wedding film",
+          quote:
+            "Emotion and pacing were handled beautifully. Family was moved — we’ll definitely come back.",
+          rating: 5,
+          initials: "Y",
+        },
+        {
+          name: "Owen",
+          role: "Interview longform",
+          quote:
+            "Longform can drag easily. This edit stayed clean and clear — much easier for viewers to finish.",
+          rating: 5,
+          initials: "O",
+        },
+        {
+          name: "Sara",
+          role: "Brand film",
+          quote:
+            "Careful with details. Subtitles and transitions felt just right — better polish than expected.",
+          rating: 5,
+          initials: "S",
+        },
+        {
+          name: "Jay",
+          role: "Event highlight",
+          quote:
+            "On time, quick revisions, and condensed a full-day event into a shareable highlight film.",
+          rating: 5,
+          initials: "J",
+        },
+      ],
     },
     contact: {
       title: "Have a film in mind?",

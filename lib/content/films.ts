@@ -77,21 +77,38 @@ export const filmPricingPlans: FilmPricingPlan[] = [
 ];
 
 /**
- * Pricing section visuals — drop files here when ready:
- * - public/images/films/pricing-left.jpg
- * - public/images/films/pricing-right.jpg
- * Then set `src` below to those paths.
+ * Films page hero media — replace `image` with a cinematic poster / still
+ * when ready (avoid dense promo/poster graphics).
+ */
+export const filmHeroMedia = {
+  image: "/images/video/hero-film.png",
+  duration: "01:24",
+} as const;
+
+/**
+ * Homepage films teaser media.
+ */
+export const homeFilmsMedia = {
+  image: "/images/video/hero-film.png",
+} as const;
+
+/**
+ * Pricing section visuals — square covers.
  */
 export const filmPricingImages = {
   left: {
-    src: undefined as string | undefined,
-    // Example: "/images/films/pricing-left.jpg",
+    src: "/images/video/video-01.png",
   },
   right: {
-    src: undefined as string | undefined,
-    // Example: "/images/films/pricing-right.jpg",
+    src: "/images/video/video-03.png",
   },
 } as const;
+
+/**
+ * External portfolio / showreel link for the works CTA.
+ */
+export const filmPortfolioUrl =
+  "https://drive.google.com/drive/folders/15UY_5Ya69Xz6ewZLwDH2SM0pNLBXx1d0?usp=drive_link";
 
 export function formatTwd(amount: number, locale: "zh-TW" | "en") {
   const formatted = new Intl.NumberFormat(

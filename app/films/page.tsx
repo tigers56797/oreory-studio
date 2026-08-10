@@ -3,6 +3,7 @@ import { FilmContact } from "@/components/films/film-contact";
 import { FilmPricing } from "@/components/films/film-pricing";
 import { FilmProcess } from "@/components/films/film-process";
 import { FilmServices } from "@/components/films/film-services";
+import { FilmTestimonials } from "@/components/films/film-testimonials";
 import { FilmWorks } from "@/components/films/film-works";
 import { FilmsHero } from "@/components/films/films-hero";
 import { Footer } from "@/components/home/footer";
@@ -26,6 +27,7 @@ export default function FilmsPage() {
         <FilmWorks />
         <FilmProcess />
         <FilmPricing />
+        <FilmTestimonials />
         <FilmContact />
       </main>
       <Footer />

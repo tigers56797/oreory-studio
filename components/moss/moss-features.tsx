@@ -55,7 +55,7 @@ export function MossFeatures() {
 
             return (
               <li key={key}>
-                <article className="flex h-full flex-col rounded-[1.5rem] border border-border bg-surface px-5 py-6 shadow-soft sm:rounded-[1.75rem]">
+                <article className="card-lift flex h-full flex-col rounded-[1.5rem] border border-border bg-surface px-5 py-6 shadow-soft sm:rounded-[1.75rem]">
                   <span
                     className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${meta.tone}`}
                   >

@@ -84,6 +84,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -123,6 +124,325 @@ body {
   animation: fade-up 0.65s var(--ease-out) both;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.75s var(--ease-out),
+    transform 0.75s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+.reveal-stagger > *:nth-child(2) {
+  transition-delay: 70ms;
+}
+.reveal-stagger > *:nth-child(3) {
+  transition-delay: 140ms;
+}
+.reveal-stagger > *:nth-child(4) {
+  transition-delay: 210ms;
+}
+.reveal-stagger > *:nth-child(5) {
+  transition-delay: 280ms;
+}
+.reveal-stagger > *:nth-child(6) {
+  transition-delay: 350ms;
+}
+
+.card-lift {
+  transition:
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out);
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(23, 23, 23, 0.08);
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.soft-float {
+  animation: soft-float 5.5s ease-in-out infinite;
+}
+
+@keyframes film-hero-char-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  65% {
+    opacity: 0.88;
+  }
+}
+
+.film-hero-char {
+  display: inline-block;
+  color: inherit;
+  animation: film-hero-char-flicker var(--char-duration, 6.5s)
+    cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  animation-delay: var(--char-delay, 0s);
+  animation-fill-mode: backwards;
+}
+
+.film-hero-headline {
+  isolation: isolate;
+}
+
+.film-hero-shine-layer {
+  pointer-events: none;
+  color: transparent;
+  background-image: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 248, 230, 0.15) 46%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(200, 170, 120, 0.55) 54%,
+    transparent 62%,
+    transparent 100%
+  );
+  background-size: 260% 260%;
+  background-position: 120% -30%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-shine-diag 8.5s cubic-bezier(0.4, 0, 0.2, 1) both infinite;
+}
+
+@keyframes film-process-progress-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes film-process-progress-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes film-process-node-in {
+  from {
+    transform: scale(0.72);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.reveal.is-visible .film-process-progress {
+  animation: film-process-progress-x 1.15s var(--ease-out) 0.15s both;
+}
+
+.reveal.is-visible .film-process-progress-y {
+  animation: film-process-progress-y 1.15s var(--ease-out) 0.15s both;
+}
+
+.reveal.is-visible .film-process-node {
+  animation: film-process-node-in 0.55s var(--ease-out) both;
+}
+
+.film-service-card:hover {
+  border-color: rgba(154, 123, 92, 0.28);
+}
+
+.film-testimonials-wave {
+  color: #dbe8cf;
+  line-height: 0;
+}
+
+.film-marquee-mask {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
+}
+
+.film-marquee-track {
+  will-change: transform;
+}
+
+.film-marquee-ltr {
+  animation: film-marquee-ltr 48s linear infinite;
+}
+
+.film-marquee-rtl {
+  animation: film-marquee-rtl 48s linear infinite;
+}
+
+.film-marquee-mask:hover .film-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Solid base text + clipped shine overlay (avoids startup color stutter) */
+.product-hero-shine {
+  isolation: isolate;
+}
+
+.product-hero-shine-layer {
+  pointer-events: none;
+  color: transparent;
+  background-image: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.2) 46%,
+    rgba(255, 255, 255, 0.95) 50%,
+    transparent 58%,
+    transparent 100%
+  );
+  background-size: 260% 260%;
+  background-position: 120% -30%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-shine-diag 8.5s cubic-bezier(0.4, 0, 0.2, 1) both infinite;
+}
+
+.moss-page .product-hero-shine-layer {
+  background-image: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(196, 181, 255, 0.7) 54%,
+    transparent 62%,
+    transparent 100%
+  );
+}
+
+.kodo-page .product-hero-shine-layer {
+  background-image: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(183, 212, 188, 0.75) 54%,
+    transparent 62%,
+    transparent 100%
+  );
+}
+
+@keyframes text-shine-diag {
+  /* Play once immediately on enter, then rest until next loop */
+  0% {
+    background-position: 120% -30%;
+  }
+  12% {
+    background-position: -30% 120%;
+  }
+  13%,
+  100% {
+    background-position: 120% -30%;
+  }
+}
+
+@keyframes hero-float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes hero-float-y-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.hero-float-card {
+  animation: hero-float-y 7s ease-in-out infinite;
+}
+
+.hero-float-mock {
+  animation: hero-float-y-soft 6.5s ease-in-out infinite;
+}
+
+.hero-float-orb {
+  animation: hero-float-y 9s ease-in-out infinite;
+}
+
+@keyframes film-marquee-ltr {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes film-marquee-rtl {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes film-hero-ken {
+  0% {
+    transform: scale(1.08) translate3d(-1.5%, 0.8%, 0);
+  }
+  50% {
+    transform: scale(1.14) translate3d(1.2%, -0.6%, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(-1.5%, 0.8%, 0);
+  }
+}
+
+.film-hero-media {
+  transform-origin: center;
+  animation: film-hero-ken 18s ease-in-out infinite;
+  will-change: transform;
+}
+
 .site-header {
   transform: translate3d(0, 0, 0);
   transition: transform 0.28s var(--ease-out);
@@ -139,6 +459,53 @@ body {
 
   .animate-fade-up {
     animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .film-hero-media {
+    animation: none;
+    transform: none;
+  }
+
+  .soft-float {
+    animation: none;
+  }
+
+  .film-hero-char {
+    animation: none;
+    opacity: 1;
+  }
+
+  .film-hero-shine-layer,
+  .product-hero-shine-layer {
+    animation: none;
+    opacity: 0;
+  }
+
+  .film-marquee-ltr,
+  .film-marquee-rtl {
+    animation: none;
+  }
+
+  .hero-float-card,
+  .hero-float-mock,
+  .hero-float-orb {
+    animation: none;
+  }
+
+  .reveal.is-visible .film-process-progress,
+  .reveal.is-visible .film-process-progress-y,
+  .reveal.is-visible .film-process-node {
+    animation: none;
+  }
+
+  .card-lift:hover {
+    transform: none;
   }
 
   .site-header {

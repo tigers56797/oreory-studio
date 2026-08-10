@@ -23,7 +23,7 @@ export function Footer() {
   const { dictionary } = useLocale();
 
   return (
-    <Section as="footer" className="!py-10 border-t border-border sm:!py-12">
+    <Section as="footer" reveal={false} className="!py-10 border-t border-border sm:!py-12">
       <Container>
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:gap-12">
           <div>
@@ -83,7 +83,7 @@ export function Footer() {
                 <a
                   href={siteContact.mailto}
                   aria-label={`Email ${siteContact.email}`}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-foreground-muted transition-colors hover:border-border-strong hover:text-foreground"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#3B82F6]/25 bg-[#3B82F6]/12 text-[#3B82F6] transition-colors hover:bg-[#3B82F6]/18"
                 >
                   <MailIcon className="h-[18px] w-[18px]" />
                 </a>
@@ -92,7 +92,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LINE"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-foreground-muted transition-colors hover:border-border-strong hover:text-foreground"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#06C755]/25 bg-[#06C755]/12 text-[#06C755] transition-colors hover:bg-[#06C755]/18"
                 >
                   <LineIcon className="h-[18px] w-[18px]" />
                 </a>
