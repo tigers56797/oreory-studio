@@ -5,6 +5,8 @@ type MossPhoneMockProps = {
   alt?: string;
   className?: string;
   tone?: "light" | "dark" | "ticket";
+  /** How the screenshot fills the screen */
+  fit?: "contain" | "cover";
 };
 
 /**
@@ -16,6 +18,7 @@ export function MossPhoneMock({
   alt = "MOSS app",
   className = "",
   tone = "light",
+  fit = "contain",
 }: MossPhoneMockProps) {
   const toneClass =
     tone === "dark"
@@ -30,7 +33,20 @@ export function MossPhoneMock({
     >
       <div className={`relative aspect-[9/19] overflow-hidden rounded-[1.55rem] ${toneClass}`}>
         {src ? (
-          <Image src={src} alt={alt} fill className="object-cover" sizes="260px" />
+          <div className="absolute inset-[2%]">
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              className={
+                fit === "cover"
+                  ? "object-cover object-top"
+                  : "object-contain object-center"
+              }
+              sizes="260px"
+              priority
+            />
+          </div>
         ) : (
           <div className="absolute inset-0 p-4">
             <div className="mx-auto h-1.5 w-16 rounded-full bg-black/10" />

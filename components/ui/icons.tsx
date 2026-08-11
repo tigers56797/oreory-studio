@@ -1,48 +1,28 @@
+import Image from "next/image";
 import type { SVGProps } from "react";
 
 type IconProps = SVGProps<SVGSVGElement> & {
   title?: string;
 };
 
-export function BrandMark({ className = "", title, ...props }: IconProps) {
+type BrandMarkProps = {
+  className?: string;
+  title?: string;
+};
+
+export function BrandMark({
+  className = "",
+  title = "Oreory Studio",
+}: BrandMarkProps) {
   return (
-    <svg
-      viewBox="0 0 48 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden={title ? undefined : true}
-      role={title ? "img" : undefined}
-      {...props}
-    >
-      {title ? <title>{title}</title> : null}
-      <ellipse
-        cx="24"
-        cy="24"
-        rx="16.5"
-        ry="16.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-      <ellipse
-        cx="24"
-        cy="24"
-        rx="8"
-        ry="16.5"
-        stroke="currentColor"
-        strokeWidth="1.25"
-      />
-      <path
-        d="M8 24h32M10.5 16.5h27M10.5 31.5h27"
-        stroke="currentColor"
-        strokeWidth="1.15"
-        strokeLinecap="round"
-      />
-      <path
-        d="M24 11.5 L25.35 21.15 L34.5 24 L25.35 26.85 L24 36.5 L22.65 26.85 L13.5 24 L22.65 21.15 Z"
-        fill="currentColor"
-      />
-    </svg>
+    <Image
+      src="/images/home/logo0811-transparent.png"
+      alt={title}
+      width={64}
+      height={64}
+      className={`object-contain ${className}`}
+      priority
+    />
   );
 }
 

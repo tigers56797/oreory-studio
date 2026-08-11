@@ -24,10 +24,9 @@ export function MossCta() {
             </h2>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button
-                href={mossLinks.appStore}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="!bg-[var(--moss-primary)] !text-white hover:!bg-[var(--moss-primary-hover)]"
+                disabled
+                aria-disabled
+                className="!cursor-default !bg-[var(--moss-primary)] !text-white opacity-90 hover:!bg-[var(--moss-primary)]"
               >
                 {copy.primary}
               </Button>

@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { kodoFeatureKeys } from "@/lib/content/kodo";
+import { kodoFeatureKeys, kodoMedia } from "@/lib/content/kodo";
 
 export function KodoFeatures() {
   const { dictionary } = useLocale();
@@ -17,18 +18,22 @@ export function KodoFeatures() {
         </h2>
 
         <ul className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
-          {kodoFeatureKeys.map((key) => {
+          {kodoFeatureKeys.map((key, index) => {
             const item = copy.items[key];
+            const mascot = kodoMedia.mascots[index % kodoMedia.mascots.length];
+
             return (
               <li key={key}>
                 <article className="card-lift flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-surface shadow-soft sm:rounded-[1.75rem]">
                   <div className="aspect-[5/4] bg-[linear-gradient(160deg,#eef5ef_0%,#f7f8f6_55%,#e6efe8_100%)] p-4">
-                    <div className="flex h-full items-end rounded-[1.1rem] border border-white/70 bg-white/70 p-3 shadow-soft">
-                      <div className="w-full space-y-2">
-                        <div className="h-2 w-1/3 rounded-full bg-[var(--kodo-primary)]/30" />
-                        <div className="h-8 rounded-lg bg-[var(--kodo-primary-soft)]" />
-                        <div className="h-8 rounded-lg bg-black/[0.04]" />
-                      </div>
+                    <div className="relative flex h-full items-center justify-center">
+                      <Image
+                        src={mascot.src}
+                        alt={mascot.alt}
+                        width={180}
+                        height={180}
+                        className="h-[88%] w-auto max-w-full object-contain drop-shadow-[0_14px_24px_rgba(30,50,35,0.12)]"
+                      />
                     </div>
                   </div>
                   <div className="flex flex-1 flex-col px-5 py-5">

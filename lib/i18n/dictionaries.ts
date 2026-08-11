@@ -7,7 +7,7 @@ const zhTW: Dictionary = {
   nav: {
     moss: "MOSS",
     kodo: "Kodo",
-    films: "影片",
+    films: "影片製作",
     studio: "關於我們",
     contact: "聯繫我們",
   },
@@ -16,13 +16,37 @@ const zhTW: Dictionary = {
     en: "EN",
   },
   hero: {
-    eyebrow: "獨立創意工作室",
-    headlineLine1: "打造數位產品，",
-    headlineLine2: "創造影像故事。",
-    description:
-      "Oreory Studio 專注於數位產品設計與影片剪輯，\n透過設計與內容，創造有價值的體驗。",
     primaryCta: "探索作品 →",
     secondaryCta: "了解工作室 →",
+    slides: {
+      moss: {
+        eyebrow: "MOSS · 粉絲生活平台",
+        headlineLine1: "珍藏每一次感動，",
+        headlineLine2: "發現更多美好。",
+        description:
+          "MOSS 協助粉絲收藏票券、紀錄回憶、追蹤喜愛的 IP，\n把散落的感動整理成屬於你的粉絲生活。",
+        primaryCta: "探索 MOSS →",
+        primaryHref: "/moss",
+      },
+      kodo: {
+        eyebrow: "Kodo · 工程異常處理",
+        headlineLine1: "讓問題開始前進，",
+        headlineLine2: "不再卡在原地。",
+        description:
+          "Kodo 以行動為核心，協助工程團隊釐清異常、推進處理，\n把卡住的問題變成可前進的下一步。",
+        primaryCta: "探索 Kodo →",
+        primaryHref: "/kodo",
+      },
+      film: {
+        eyebrow: "影片剪輯服務",
+        headlineLine1: "用影像說故事，",
+        headlineLine2: "創造值得被記住的\n內容。",
+        description:
+          "從原始素材到最終成品，協助你整理內容、建立節奏，\n製作出適合發布的長影音。",
+        primaryCta: "探索影片 →",
+        primaryHref: "/films",
+      },
+    },
     floatLabels: {
       ip: { label: "收藏的 IP", value: "18 個" },
       planet: { label: "回憶星球", value: "32 顆" },
@@ -118,7 +142,7 @@ const zhTW: Dictionary = {
     hero: {
       eyebrow: "影片剪輯",
       headlineLine1: "用影像說故事，",
-      headlineLine2: "創造值得被記住的內容。",
+      headlineLine2: "創造值得被記住的\n內容。",
       description:
         "從原始素材到最終成品，\n協助你整理內容、建立節奏，\n製作出適合發布的長影音。",
       primaryCta: "聯繫我們 →",
@@ -298,6 +322,24 @@ const zhTW: Dictionary = {
     },
     title: "聯繫我們",
     description: "歡迎透過 LINE 或 Email 詢問影片剪輯與合作事宜。",
+    profile: {
+      name: "Oreory Studio",
+      role: "產品設計 × 使用者體驗 × 影片剪輯",
+      statement:
+        "從使用者、產品到商業，\n找到真正值得被解決的問題。\n把原始素材整理成完整影片，\n創造值得被記住的內容。",
+      bio: "我專注於數位產品與使用者體驗設計，\n擅長快速理解陌生領域、拆解複雜問題，\n並從使用者需求、產品目標與商業價值之間找到平衡。\n\n從高資訊密度的企業系統，到新創產品與數位服務，\n我習慣將複雜流程重新整理成清晰、有效率\n且真正能被使用的體驗。\n\n同時我也專注於影片剪輯與影像敘事，\n擅長整理原始素材、建立節奏與結構，\n並把品牌、創作者與活動內容剪輯成適合發布的完整影片。\n\n從長影音、內容型影片，到活動與產品素材，\n我習慣把散落的畫面重新整理成清楚、有溫度\n且真正適合被觀看與分享的作品。",
+      brandLine:
+        "以設計解決問題，\n以產品創造價值。\n用影像說故事，\n創造值得被記住的內容。",
+      photoAlt: "Oreory Studio 大頭照",
+      skills: {
+        insight: "使用者洞察",
+        business: "商業敏感度",
+        systems: "系統思維",
+        product: "產品思維",
+        learning: "快速學習",
+        execution: "高效率執行",
+      },
+    },
   },
   mossPage: mossPageZh,
   kodoPage: kodoPageZh,
@@ -317,13 +359,37 @@ const en: Dictionary = {
     en: "EN",
   },
   hero: {
-    eyebrow: "Independent creative studio",
-    headlineLine1: "Building digital products,",
-    headlineLine2: "crafting visual stories.",
-    description:
-      "Oreory Studio focuses on digital product design and film editing,\ncreating meaningful experiences through design and content.",
     primaryCta: "Explore work →",
     secondaryCta: "About the studio →",
+    slides: {
+      moss: {
+        eyebrow: "MOSS · Fan lifestyle platform",
+        headlineLine1: "Cherish every moment,",
+        headlineLine2: "discover more beauty.",
+        description:
+          "MOSS helps fans collect tickets, keep memories, and follow favorite IPs —\nturning scattered moments into a fan life worth revisiting.",
+        primaryCta: "Explore MOSS →",
+        primaryHref: "/moss",
+      },
+      kodo: {
+        eyebrow: "Kodo · Engineering exceptions",
+        headlineLine1: "Let problems move forward,",
+        headlineLine2: "instead of staying stuck.",
+        description:
+          "Kodo is action-oriented — helping engineering teams clarify exceptions,\nand turn blocked issues into the next step forward.",
+        primaryCta: "Explore Kodo →",
+        primaryHref: "/kodo",
+      },
+      film: {
+        eyebrow: "Film editing service",
+        headlineLine1: "Tell stories through film,",
+        headlineLine2: "create work worth\nremembering.",
+        description:
+          "From raw footage to the finished piece — organizing content, shaping rhythm,\nand crafting long-form films ready to publish.",
+        primaryCta: "Explore films →",
+        primaryHref: "/films",
+      },
+    },
     floatLabels: {
       ip: { label: "Collected IP", value: "18" },
       planet: { label: "Memory planets", value: "32" },
@@ -430,7 +496,7 @@ const en: Dictionary = {
     hero: {
       eyebrow: "Film Editing",
       headlineLine1: "Tell stories through film,",
-      headlineLine2: "create work worth remembering.",
+      headlineLine2: "create work worth\nremembering.",
       description:
         "From raw footage to final delivery,\nwe help organize content, build rhythm,\nand craft long-form videos ready to publish.",
       primaryCta: "Contact us →",
@@ -611,6 +677,24 @@ const en: Dictionary = {
     },
     title: "Contact",
     description: "Reach out via LINE or email for film editing and collaborations.",
+    profile: {
+      name: "Oreory Studio",
+      role: "Product Design × User Experience × Film Editing",
+      statement:
+        "From users and product to business,\nfind the problems truly worth solving.\nTurn raw footage into finished films,\nand create work worth remembering.",
+      bio: "I focus on digital products and user experience design.\nI quickly learn unfamiliar domains, break down complex problems,\nand balance user needs, product goals, and business value.\n\nFrom information-dense enterprise systems to startups and digital services,\nI reshape complex flows into clear, efficient experiences\nthat people can actually use.\n\nI also focus on film editing and visual storytelling.\nI organize raw footage, shape pacing and structure,\nand edit brand, creator, and event content into release-ready films.\n\nFrom long-form and content films to event and product footage,\nI reshape scattered clips into clear, warm pieces\nthat are ready to watch and share.",
+      brandLine:
+        "Solve with design.\nCreate value with product.\nTell stories through film.\nCreate work worth remembering.",
+      photoAlt: "Portrait of Oreory Studio",
+      skills: {
+        insight: "User insight",
+        business: "Commercial sense",
+        systems: "Systems thinking",
+        product: "Product thinking",
+        learning: "Fast learning",
+        execution: "High-efficiency execution",
+      },
+    },
   },
   mossPage: mossPageEn,
   kodoPage: kodoPageEn,

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Noto_Sans_TC } from "next/font/google";
 import { LocaleProvider } from "@/components/providers/locale-provider";
+import { FloatingActions } from "@/components/ui/floating-actions";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -39,7 +40,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${manrope.variable} ${notoSansTC.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background font-sans text-foreground">
-        <LocaleProvider>{children}</LocaleProvider>
+        <LocaleProvider>
+          {children}
+          <FloatingActions />
+        </LocaleProvider>
       </body>
     </html>
   );

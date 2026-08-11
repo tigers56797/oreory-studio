@@ -46,8 +46,13 @@ export function MossHero() {
             </div>
 
             <h1 className="product-hero-shine relative mt-6 text-[clamp(2rem,4.2vw,3.4rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
-              <span className="relative z-0">{copy.hero.headline}</span>
-              <span aria-hidden className="product-hero-shine-layer absolute inset-0">
+              <span className="relative z-0 whitespace-pre-line">
+                {copy.hero.headline}
+              </span>
+              <span
+                aria-hidden
+                className="product-hero-shine-layer absolute inset-0 whitespace-pre-line"
+              >
                 {copy.hero.headline}
               </span>
             </h1>
@@ -58,10 +63,9 @@ export function MossHero() {
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button
-                href={mossLinks.start}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="!bg-[var(--moss-primary)] !text-white hover:!bg-[var(--moss-primary-hover)]"
+                disabled
+                aria-disabled
+                className="!cursor-default !bg-[var(--moss-primary)] !text-white opacity-90 hover:!bg-[var(--moss-primary)]"
               >
                 {copy.hero.primaryCta}
               </Button>

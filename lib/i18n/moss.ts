@@ -14,10 +14,10 @@ export const mossPageZh: Dictionary["mossPage"] = {
   },
   hero: {
     badge: "MOSS 粉絲生活平台",
-    headline: "珍藏每一次感動，發現更多美好。",
+    headline: "珍藏每一次感動，\n發現更多美好。",
     description:
       "MOSS 協助粉絲收藏票券、紀錄回憶、追蹤喜愛的 IP，把散落的感動整理成屬於你的粉絲生活。",
-    primaryCta: "開始使用 MOSS →",
+    primaryCta: "即將推出",
     secondaryCta: "了解更多功能",
     platforms: {
       ios: "iOS",
@@ -147,10 +147,10 @@ export const mossPageEn: Dictionary["mossPage"] = {
   },
   hero: {
     badge: "MOSS Fan Lifestyle Platform",
-    headline: "Cherish every moment. Discover more beauty.",
+    headline: "Cherish every moment.\nDiscover more beauty.",
     description:
       "MOSS helps fans collect tickets, keep memories, and follow favorite IPs — turning scattered moments into a fan life worth revisiting.",
-    primaryCta: "Get started with MOSS →",
+    primaryCta: "Coming soon",
     secondaryCta: "Explore features",
     platforms: {
       ios: "iOS",

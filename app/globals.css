@@ -184,6 +184,169 @@ body {
   animation: soft-float 5.5s ease-in-out infinite;
 }
 
+/* Contact — Professional Profile Card */
+.profile-aurora {
+  background:
+    radial-gradient(ellipse 55% 45% at 18% 18%, rgba(198, 184, 230, 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 84% 22%, rgba(176, 196, 232, 0.18), transparent 72%),
+    radial-gradient(ellipse 60% 50% at 50% 92%, rgba(232, 214, 180, 0.16), transparent 70%);
+}
+
+@keyframes contact-year-flicker {
+  0%,
+  100% {
+    opacity: 0.045;
+  }
+  28% {
+    opacity: 0.11;
+  }
+  42% {
+    opacity: 0.03;
+  }
+  61% {
+    opacity: 0.14;
+  }
+  78% {
+    opacity: 0.055;
+  }
+}
+
+.contact-year-glyph {
+  color: rgba(23, 23, 23, 0.9);
+  opacity: 0.06;
+  animation-name: contact-year-flicker;
+  animation-duration: var(--year-duration, 6.5s);
+  animation-delay: var(--year-delay, 0s);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: opacity;
+}
+
+.profile-pill {
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    background-color 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out),
+    color 0.35s var(--ease-out);
+  will-change: transform;
+}
+
+.profile-pill:hover {
+  transform: translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.98);
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 22px rgba(23, 23, 23, 0.07);
+  color: var(--foreground);
+  animation-play-state: paused;
+}
+
+@keyframes profile-float-a {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes profile-float-b {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3.5px);
+  }
+}
+
+@keyframes profile-float-c {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.profile-pill--1 {
+  animation: profile-float-a 5.6s ease-in-out infinite;
+  margin-top: 0.15rem;
+}
+
+.profile-pill--2 {
+  animation: profile-float-b 6.4s ease-in-out infinite;
+  margin-top: -0.35rem;
+  animation-delay: 0.35s;
+}
+
+.profile-pill--3 {
+  animation: profile-float-c 7.1s ease-in-out infinite;
+  margin-top: 0.45rem;
+  animation-delay: 0.7s;
+}
+
+.profile-pill--4 {
+  animation: profile-float-a 6.8s ease-in-out infinite;
+  margin-top: -0.2rem;
+  animation-delay: 0.15s;
+}
+
+.profile-pill--5 {
+  animation: profile-float-b 5.9s ease-in-out infinite;
+  margin-top: 0.55rem;
+  animation-delay: 0.9s;
+}
+
+.profile-pill--6 {
+  animation: profile-float-c 7.4s ease-in-out infinite;
+  margin-top: -0.45rem;
+  animation-delay: 0.5s;
+}
+
+@media (max-width: 640px) {
+  @keyframes profile-float-a {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  @keyframes profile-float-b {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+
+  @keyframes profile-float-c {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3.5px);
+    }
+  }
+
+  .profile-pill--1,
+  .profile-pill--2,
+  .profile-pill--3,
+  .profile-pill--4,
+  .profile-pill--5,
+  .profile-pill--6 {
+    margin-top: 0;
+  }
+}
+
 @keyframes film-hero-char-flicker {
   0%,
   100% {
@@ -395,6 +558,38 @@ body {
   }
 }
 
+@keyframes hero-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-16px);
+  }
+  55% {
+    transform: translateY(-5px);
+  }
+  75% {
+    transform: translateY(-11px);
+  }
+}
+
+@keyframes hero-bounce-alt {
+  0%,
+  100% {
+    transform: translateY(-8px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-14px);
+  }
+  80% {
+    transform: translateY(-3px);
+  }
+}
+
 .hero-float-card {
   animation: hero-float-y 7s ease-in-out infinite;
 }
@@ -405,6 +600,16 @@ body {
 
 .hero-float-orb {
   animation: hero-float-y 9s ease-in-out infinite;
+}
+
+.hero-bounce {
+  animation-name: hero-bounce;
+  animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  animation-iteration-count: infinite;
+}
+
+.hero-bounce:nth-child(even) {
+  animation-name: hero-bounce-alt;
 }
 
 @keyframes film-marquee-ltr {
@@ -476,6 +681,15 @@ body {
     animation: none;
   }
 
+  .profile-pill {
+    animation: none !important;
+  }
+
+  .contact-year-glyph {
+    animation: none !important;
+    opacity: 0.06;
+  }
+
   .film-hero-char {
     animation: none;
     opacity: 1;
@@ -494,7 +708,8 @@ body {
 
   .hero-float-card,
   .hero-float-mock,
-  .hero-float-orb {
+  .hero-float-orb,
+  .hero-bounce {
     animation: none;
   }
 

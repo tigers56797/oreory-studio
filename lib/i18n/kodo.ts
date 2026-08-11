@@ -10,7 +10,7 @@ export const kodoPageZh: Dictionary["kodoPage"] = {
   hero: {
     badge: "v1.4.0 現已推出",
     name: "Kodo",
-    headline: "讓問題開始前進。",
+    headline: "讓問題\n開始前進。",
     description:
       "Kodo 是為工程團隊打造的行動導向異常處理工具，幫助你快速掌握狀態、採取下一步，讓卡住的問題重新開始前進。",
     primaryCta: "開始使用 Kodo →",
@@ -51,10 +51,16 @@ export const kodoPageZh: Dictionary["kodoPage"] = {
   experience: {
     title: "產品體驗",
     items: {
-      overview: { title: "專案概覽", description: "掌握專案與異常全貌。" },
-      records: { title: "異常紀錄", description: "清楚留下每一次處理軌跡。" },
-      knowledge: { title: "知識庫", description: "把解法沉澱成可重用知識。" },
-      collab: { title: "團隊協作", description: "跨角色一起把問題往前推。" },
+      overview: { title: "專案詳細", description: "掌握專案狀態、進度與關鍵細節。" },
+      records: { title: "異常感知", description: "即時看見異常訊號，快速掌握風險。" },
+      knowledge: {
+        title: "專注模式",
+        description: "進入 Focus Mode，把注意力放在眼前這一個問題。",
+      },
+      collab: {
+        title: "成長軌跡",
+        description: "回看成長曲線與處理節奏，持續優化團隊效率。",
+      },
     },
   },
   teams: {
@@ -145,7 +151,7 @@ export const kodoPageEn: Dictionary["kodoPage"] = {
   hero: {
     badge: "v1.4.0 available now",
     name: "Kodo",
-    headline: "Let problems start moving forward.",
+    headline: "Let problems\nstart moving forward.",
     description:
       "Kodo is a mobile-oriented exception handling tool for engineering teams — helping you see status clearly, take the next step, and keep stuck issues moving.",
     primaryCta: "Start with Kodo →",
@@ -186,10 +192,22 @@ export const kodoPageEn: Dictionary["kodoPage"] = {
   experience: {
     title: "Product experience",
     items: {
-      overview: { title: "Project overview", description: "See projects and exceptions clearly." },
-      records: { title: "Anomaly records", description: "Keep a clear trail of every action." },
-      knowledge: { title: "Knowledge base", description: "Turn solutions into reusable knowledge." },
-      collab: { title: "Team collaboration", description: "Move problems forward across roles." },
+      overview: {
+        title: "Project details",
+        description: "See project status, progress, and key details at a glance.",
+      },
+      records: {
+        title: "Anomaly sensing",
+        description: "Spot anomaly signals early and understand risk quickly.",
+      },
+      knowledge: {
+        title: "Focus Mode",
+        description: "Enter Focus Mode and give full attention to one problem.",
+      },
+      collab: {
+        title: "Growth trail",
+        description: "Review growth curves and handling pace to keep improving.",
+      },
     },
   },
   teams: {

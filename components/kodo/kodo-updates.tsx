@@ -17,7 +17,7 @@ export function KodoUpdates() {
   const featured = copy.items.focus;
 
   return (
-    <Section id="kodo-updates">
+    <Section id="kodo-updates" className="!pt-4 sm:!pt-6">
       <Container>
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-[1.75rem] border border-border bg-surface p-6 shadow-soft sm:rounded-[2rem] sm:p-8">
@@ -52,6 +52,7 @@ export function KodoUpdates() {
                   <KodoDeviceMock
                     variant="phone"
                     src={kodoMedia.updateFeatured}
+                    alt="Kodo 專注模式"
                     className="!w-full"
                   />
                 </div>

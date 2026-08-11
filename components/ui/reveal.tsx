@@ -26,7 +26,6 @@ export function Reveal({
   as: Tag = "div",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const [enabled, setEnabled] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useLayoutEffect(() => {
@@ -36,22 +35,20 @@ export function Reveal({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       setVisible(true);
-      setEnabled(true);
       return;
     }
 
-    const alreadyInView = () => {
+    // Only show immediately if already clearly in the upper viewport.
+    // Content near the fold waits until the user scrolls to it.
+    const clearlyInView = () => {
       const rect = el.getBoundingClientRect();
-      return rect.top < window.innerHeight * 0.92 && rect.bottom > 40;
+      return rect.top < window.innerHeight * 0.38 && rect.bottom > 60;
     };
 
-    if (alreadyInView()) {
+    if (clearlyInView()) {
       setVisible(true);
-      setEnabled(true);
       return;
     }
-
-    setEnabled(true);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -62,7 +59,7 @@ export function Reveal({
           setVisible(false);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+      { threshold: 0.18, rootMargin: "0px 0px -28% 0px" },
     );
 
     observer.observe(el);
@@ -72,11 +69,7 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      className={[
-        enabled ? "reveal" : "",
-        visible || !enabled ? "is-visible" : "",
-        className,
-      ]
+      className={["reveal", visible ? "is-visible" : "", className]
         .filter(Boolean)
         .join(" ")}
       style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}

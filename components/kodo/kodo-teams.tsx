@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -8,6 +9,7 @@ import {
   kodoAudienceKeys,
   kodoEnterpriseKeys,
   kodoLinks,
+  kodoMedia,
 } from "@/lib/content/kodo";
 
 export function KodoTeams() {
@@ -15,7 +17,7 @@ export function KodoTeams() {
   const copy = dictionary.kodoPage.teams;
 
   return (
-    <Section id="kodo-teams">
+    <Section id="kodo-teams" className="!pb-4 sm:!pb-6">
       <Container>
         <div className="max-w-2xl">
           <h2 className="text-[clamp(1.55rem,3vw,2.25rem)] font-semibold tracking-[-0.025em] text-foreground">
@@ -69,6 +71,29 @@ export function KodoTeams() {
             );
           })}
         </ul>
+
+        <div className="mt-10 space-y-5">
+          {kodoMedia.teamsVisuals.map((src, index) => (
+            <div
+              key={src}
+              className="overflow-hidden rounded-[1.5rem] border border-border bg-[#f7f8f7] shadow-soft sm:rounded-[1.75rem]"
+            >
+              <div
+                className={`relative w-full ${
+                  index === 0 ? "aspect-[3746/2482]" : "aspect-[3746/1506]"
+                }`}
+              >
+                <Image
+                  src={src}
+                  alt={index === 0 ? "Kodo UI Intro 2" : "Kodo UI Intro 5"}
+                  fill
+                  className="object-contain object-center"
+                  sizes="(max-width: 1200px) 100vw, 1152px"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </Container>
     </Section>
   );

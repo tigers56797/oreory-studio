@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { KodoDeviceMock } from "@/components/kodo/kodo-device-mock";
 import { kodoLinks, kodoMedia } from "@/lib/content/kodo";
 
 export function KodoHero() {
@@ -18,7 +18,7 @@ export function KodoHero() {
       />
 
       <Container className="relative">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-10">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.25fr)] lg:gap-8">
           <div className="animate-fade-up max-w-xl">
             <div className="flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-tight text-foreground">
@@ -33,8 +33,13 @@ export function KodoHero() {
             </div>
 
             <h1 className="product-hero-shine relative mt-6 text-[clamp(2.1rem,4.4vw,3.5rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-foreground">
-              <span className="relative z-0">{copy.headline}</span>
-              <span aria-hidden className="product-hero-shine-layer absolute inset-0">
+              <span className="relative z-0 whitespace-pre-line">
+                {copy.headline}
+              </span>
+              <span
+                aria-hidden
+                className="product-hero-shine-layer absolute inset-0 whitespace-pre-line"
+              >
                 {copy.headline}
               </span>
             </h1>
@@ -63,10 +68,16 @@ export function KodoHero() {
           </div>
 
           <div className="animate-fade-up relative flex justify-center [animation-delay:80ms] lg:justify-end">
-            <div className="relative w-full max-w-[560px] soft-float">
-              <KodoDeviceMock src={kodoMedia.heroDesktop} />
-              <div className="absolute -right-1 -bottom-6 sm:right-4 sm:bottom-[-1.5rem]">
-                <KodoDeviceMock variant="phone" src={kodoMedia.heroPhone} />
+            <div className="relative w-full max-w-[820px] scale-[1.06] soft-float lg:max-w-none lg:w-[118%]">
+              <div className="relative aspect-[3746/1506] w-full">
+                <Image
+                  src={kodoMedia.heroVisual}
+                  alt="Kodo 首頁介面"
+                  fill
+                  priority
+                  className="object-contain object-center drop-shadow-[0_28px_50px_rgba(30,50,35,0.14)]"
+                  sizes="(max-width: 1024px) 94vw, 820px"
+                />
               </div>
             </div>
           </div>

@@ -26,6 +26,15 @@ export const mossShowcaseKeys = [
   "ticket",
 ] as const;
 
+export const mossShowcaseMedia: Record<
+  (typeof mossShowcaseKeys)[number],
+  string
+> = {
+  planet: "/images/moss/moss-b.png",
+  timeline: "/images/moss/moss-a.png",
+  ticket: "/images/moss/ticket.png",
+};
+
 export const mossPartnerKeys = [
   "official",
   "brand",
@@ -36,8 +45,8 @@ export const mossPartnerKeys = [
 export const mossUpdateIds = ["v2", "v19", "v18", "v17"] as const;
 
 export const mossMedia = {
-  heroPhone: undefined as string | undefined,
-  // "/images/moss/hero-phone.png",
-  updatesPhone: undefined as string | undefined,
+  heroPhone: "/images/moss/app-home.png",
+  heroLogo: "/images/moss/去背logo圖.png",
+  updatesPhone: "/images/moss/app-tickets.png",
   ctaCharacter: undefined as string | undefined,
 } as const;

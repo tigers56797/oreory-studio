@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -10,9 +11,11 @@ import { siteContact } from "@/lib/contact";
 type FilmContactProps = {
   title?: string;
   description?: string;
+  /** Optional content between header and LINE / Email cards */
+  between?: ReactNode;
 };
 
-export function FilmContact({ title, description }: FilmContactProps) {
+export function FilmContact({ title, description, between }: FilmContactProps) {
   const { dictionary } = useLocale();
   const copy = dictionary.filmsPage.contact;
 
@@ -27,6 +30,8 @@ export function FilmContact({ title, description }: FilmContactProps) {
             {description ?? copy.description}
           </p>
         </div>
+
+        {between ? <div className="mt-10 sm:mt-12">{between}</div> : null}
 
         <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5">
           <article className="card-lift rounded-[1.75rem] border border-border bg-surface px-6 py-7 text-left shadow-soft sm:rounded-[2rem] sm:px-7 sm:py-8">

@@ -20,7 +20,7 @@ export function KodoDeviceMock({
       >
         <div className="relative aspect-[9/19] overflow-hidden rounded-[1.35rem] bg-[#f3f7f3]">
           {src ? (
-            <Image src={src} alt={alt} fill className="object-cover" sizes="170px" />
+            <Image src={src} alt={alt} fill className="object-cover object-top" sizes="170px" />
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4">
               <div className="flex h-24 w-24 items-center justify-center rounded-full border-[6px] border-[var(--kodo-primary)] text-xl font-semibold text-[var(--kodo-primary)]">

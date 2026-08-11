@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { MossPhoneMock } from "@/components/moss/moss-phone-mock";
-import { KodoDeviceMock } from "@/components/kodo/kodo-device-mock";
 import { useLocale } from "@/components/providers/locale-provider";
 import type { FeaturedContentConfig } from "@/lib/content/featured";
+import { kodoMedia } from "@/lib/content/kodo";
+import { mossMedia } from "@/lib/content/moss";
 
 type FloatCardProps = {
   label: string;
@@ -68,10 +68,6 @@ function AuroraWash({ tone }: { tone: FeaturedContentConfig["tone"] }) {
           aria-hidden
           className="pointer-events-none absolute top-[35%] right-[10%] h-[40%] w-[45%] rounded-full bg-[radial-gradient(circle_at_center,rgba(232,214,180,0.32),transparent_70%)] blur-3xl"
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-[8%] top-[18%] h-px rotate-[-8deg] bg-[linear-gradient(90deg,transparent,rgba(196,181,255,0.45),transparent)]"
-        />
       </>
     );
   }
@@ -123,9 +119,16 @@ function MossComposition() {
         className="hero-float-orb absolute bottom-[18%] left-[4%] h-10 w-10 rounded-full border border-white/40 bg-[rgba(196,181,255,0.25)] backdrop-blur-sm [animation-delay:1.2s]"
       />
 
-      <div className="absolute top-1/2 left-1/2 z-20 w-[min(58%,220px)] -translate-x-1/2 -translate-y-[48%] sm:w-[240px] lg:w-[260px]">
-        <div className="hero-float-mock">
-          <MossPhoneMock className="!mx-0 !w-full" />
+      <div className="absolute top-1/2 left-1/2 z-20 w-[min(70%,280px)] -translate-x-1/2 -translate-y-1/2 sm:w-[300px] lg:w-[320px]">
+        <div className="hero-float-mock relative mx-auto aspect-square w-full">
+          <Image
+            src={mossMedia.heroLogo}
+            alt="MOSS"
+            fill
+            priority
+            className="object-contain drop-shadow-[0_24px_48px_rgba(40,20,90,0.16)]"
+            sizes="(max-width: 1024px) 70vw, 320px"
+          />
         </div>
       </div>
 
@@ -175,20 +178,28 @@ function KodoComposition() {
         </span>
       </div>
 
-      {/* Primary phone mock */}
-      <div className="absolute top-1/2 left-[18%] z-20 -translate-y-[52%] sm:left-[22%] lg:left-[18%]">
-        <div className="hero-float-mock">
-          <KodoDeviceMock
-            variant="phone"
-            className="!w-[150px] sm:!w-[170px] lg:!w-[180px]"
-          />
-        </div>
-      </div>
-
-      {/* Secondary phone — offset / overlapping */}
-      <div className="absolute right-[4%] bottom-[4%] z-40 sm:right-[-2%] sm:bottom-[-2%] lg:right-[-6%]">
-        <div className="hero-float-mock rotate-[4deg] [animation-delay:0.9s]">
-          <KodoDeviceMock variant="phone" className="!w-[120px] opacity-90 sm:!w-[140px]" />
+      {/* Mascots — horizontal center row, staggered bounce */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center px-1 sm:px-3">
+        <div className="flex w-full max-w-[34rem] items-end justify-center gap-1 sm:gap-2 lg:gap-3">
+          {kodoMedia.mascots.map((mascot, index) => (
+            <div
+              key={mascot.src}
+              className="hero-bounce relative aspect-square w-[23%] max-w-[160px] min-w-[72px]"
+              style={{
+                animationDelay: `${index * 0.7}s`,
+                animationDuration: `${3.1 + index * 0.55}s`,
+              }}
+            >
+              <Image
+                src={mascot.src}
+                alt={mascot.alt}
+                fill
+                className="object-contain drop-shadow-[0_18px_28px_rgba(30,50,35,0.14)]"
+                sizes="160px"
+                priority={index < 2}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -196,21 +207,21 @@ function KodoComposition() {
         compact
         label={labels.status.label}
         value={labels.status.value}
-        className="absolute top-[16%] left-[2%] z-30 hidden sm:block lg:left-[-2%]"
+        className="absolute top-[12%] left-[2%] z-40 hidden sm:block lg:left-[-2%]"
         delayClass="[animation-delay:0.25s]"
       />
       <FloatCard
         compact
         label={labels.focus.label}
         value={labels.focus.value}
-        className="absolute top-[28%] right-[2%] z-30 sm:right-[4%] lg:right-[0%]"
+        className="absolute top-[14%] right-[2%] z-40 sm:right-[4%] lg:right-[0%]"
         delayClass="[animation-delay:0.7s]"
       />
       <FloatCard
         compact
         label={labels.actions.label}
         value={labels.actions.value}
-        className="absolute bottom-[20%] left-[8%] z-30 sm:bottom-[18%] sm:left-[4%]"
+        className="absolute bottom-[10%] left-1/2 z-40 -translate-x-1/2"
         delayClass="[animation-delay:1.3s]"
       />
     </div>

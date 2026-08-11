@@ -63,8 +63,12 @@ export function MossUpdates() {
                 </ul>
               </article>
 
-              <div className="mx-auto w-[150px] sm:w-[170px]">
-                <MossPhoneMock src={mossMedia.updatesPhone} className="!w-full" />
+              <div className="mx-auto w-[168px] sm:w-[190px]">
+                <MossPhoneMock
+                  src={mossMedia.updatesPhone}
+                  alt="MOSS 我的票券"
+                  className="!w-full"
+                />
               </div>
             </div>
 

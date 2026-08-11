@@ -41,10 +41,31 @@ function FlickerLine({
   );
 }
 
+function FlickerMultiline({
+  lines,
+}: {
+  lines: string[];
+}) {
+  let offset = 0;
+
+  return (
+    <>
+      {lines.map((line) => {
+        const node = (
+          <FlickerLine key={`${offset}-${line}`} text={line} lineOffset={offset} />
+        );
+        offset += Array.from(line).length * 0.08;
+        return node;
+      })}
+    </>
+  );
+}
+
 export function FilmsHero() {
   const { dictionary } = useLocale();
   const copy = dictionary.filmsPage.hero;
-  const headline = `${copy.headlineLine1}${copy.headlineLine2}`;
+  const headlineLines = [copy.headlineLine1, ...copy.headlineLine2.split("\n")];
+  const headline = headlineLines.join("");
 
   return (
     <section id="top" className="relative pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-16">
@@ -60,18 +81,17 @@ export function FilmsHero() {
               aria-label={headline}
             >
               <span className="relative z-0" aria-hidden="true">
-                <FlickerLine text={copy.headlineLine1} />
-                <FlickerLine
-                  text={copy.headlineLine2}
-                  lineOffset={Array.from(copy.headlineLine1).length * 0.08}
-                />
+                <FlickerMultiline lines={headlineLines} />
               </span>
               <span
                 aria-hidden
                 className="film-hero-shine-layer absolute inset-0 z-10"
               >
-                <span className="block">{copy.headlineLine1}</span>
-                <span className="block">{copy.headlineLine2}</span>
+                {headlineLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
               </span>
             </h1>
 

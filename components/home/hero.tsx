@@ -34,7 +34,8 @@ export function Hero() {
   };
 
   const active = slides[index] ?? slides[0];
-  const copy = dictionary.hero;
+  const slideCopy = dictionary.hero.slides[active.id];
+  const featured = dictionary.featured.items[active.id];
 
   return (
     <section
@@ -48,26 +49,35 @@ export function Hero() {
         <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-6 xl:gap-4">
           {/* Left copy */}
           <div className="animate-fade-up relative z-10 max-w-xl lg:py-2">
-            <p className="text-[11px] font-semibold tracking-[0.2em] text-foreground-subtle">
-              {copy.eyebrow}
-            </p>
+            <div
+              key={active.id}
+              className="transition-opacity duration-500 ease-[var(--ease-out)]"
+            >
+              <p className="text-[11px] font-semibold tracking-[0.2em] text-foreground-subtle">
+                {slideCopy.eyebrow}
+              </p>
 
-            <h1 className="mt-4 font-display text-[clamp(2.35rem,5.1vw,3.9rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground sm:mt-5">
-              <span className="block">{copy.headlineLine1}</span>
-              <span className="block">{copy.headlineLine2}</span>
-            </h1>
+              <h1 className="mt-4 font-display text-[clamp(2.35rem,5.1vw,3.9rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground sm:mt-5">
+                <span className="block">{slideCopy.headlineLine1}</span>
+                {slideCopy.headlineLine2.split("\n").map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </h1>
 
-            <p className="mt-5 max-w-[28rem] whitespace-pre-line text-[0.95rem] leading-7 text-foreground-muted sm:mt-6 sm:text-base sm:leading-8">
-              {copy.description}
-            </p>
+              <p className="mt-5 max-w-[28rem] whitespace-pre-line text-[0.95rem] leading-7 text-foreground-muted sm:mt-6 sm:text-base sm:leading-8">
+                {slideCopy.description}
+              </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
-              <Button href="#products" className="min-w-[9.5rem]">
-                {copy.primaryCta}
-              </Button>
-              <Button href="#studio" variant="secondary">
-                {copy.secondaryCta}
-              </Button>
+              <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
+                <Button href={slideCopy.primaryHref} className="min-w-[9.5rem]">
+                  {slideCopy.primaryCta}
+                </Button>
+                <Button href="#studio" variant="secondary">
+                  {dictionary.hero.secondaryCta}
+                </Button>
+              </div>
             </div>
 
             {/* Carousel controls */}
@@ -115,9 +125,9 @@ export function Hero() {
             </div>
 
             <p className="mt-3 text-[11px] tracking-wide text-foreground-subtle">
-              {dictionary.featured.items[active.id].title}
+              {featured.title}
               <span className="mx-1.5 text-foreground/25">·</span>
-              {dictionary.featured.items[active.id].description}
+              {featured.description}
             </p>
           </div>
 
@@ -139,7 +149,7 @@ export function Hero() {
       </div>
 
       <span className="sr-only" aria-live="polite">
-        {dictionary.featured.items[active.id].title}
+        {featured.title}
       </span>
     </section>
   );

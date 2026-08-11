@@ -31,12 +31,19 @@ export type Dictionary = {
     en: string;
   };
   hero: {
-    eyebrow: string;
-    headlineLine1: string;
-    headlineLine2: string;
-    description: string;
     primaryCta: string;
     secondaryCta: string;
+    slides: Record<
+      FeaturedId,
+      {
+        eyebrow: string;
+        headlineLine1: string;
+        headlineLine2: string;
+        description: string;
+        primaryCta: string;
+        primaryHref: string;
+      }
+    >;
     floatLabels: {
       ip: { label: string; value: string };
       planet: { label: string; value: string };
@@ -187,6 +194,22 @@ export type Dictionary = {
     };
     title: string;
     description: string;
+    profile: {
+      name: string;
+      role: string;
+      statement: string;
+      bio: string;
+      brandLine: string;
+      photoAlt: string;
+      skills: {
+        insight: string;
+        business: string;
+        systems: string;
+        product: string;
+        learning: string;
+        execution: string;
+      };
+    };
   };
   mossPage: {
     meta: {

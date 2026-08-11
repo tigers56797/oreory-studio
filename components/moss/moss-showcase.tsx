@@ -1,10 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { PlayIcon } from "@/components/ui/icons";
-import { mossLinks, mossShowcaseKeys } from "@/lib/content/moss";
+import {
+  mossLinks,
+  mossShowcaseKeys,
+  mossShowcaseMedia,
+} from "@/lib/content/moss";
 
 const showcaseTone: Record<(typeof mossShowcaseKeys)[number], string> = {
   planet: "bg-[linear-gradient(160deg,#2a2148_0%,#171225_100%)] text-white",
@@ -51,8 +56,16 @@ export function MossShowcase() {
                   >
                     <div className="aspect-[4/5] p-5">
                       <div className="flex h-full flex-col justify-between">
-                        <div className="h-full rounded-[1.25rem] border border-white/20 bg-white/10" />
-                        <div className="mt-4">
+                        <div className="relative min-h-0 flex-1 overflow-hidden rounded-[1.25rem]">
+                          <Image
+                            src={mossShowcaseMedia[key]}
+                            alt={item.title}
+                            fill
+                            className="object-cover"
+                            sizes="260px"
+                          />
+                        </div>
+                        <div className="mt-4 shrink-0">
                           <h3 className="text-base font-semibold tracking-tight">
                             {item.title}
                           </h3>
