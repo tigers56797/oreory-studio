@@ -23,6 +23,7 @@ const zhTW: Dictionary = {
         eyebrow: "MOSS · 粉絲生活平台",
         headlineLine1: "珍藏每一次感動，",
         headlineLine2: "發現更多美好。",
+        emphasis: ["感動", "美好"],
         description:
           "MOSS 協助粉絲收藏票券、紀錄回憶、追蹤喜愛的 IP，\n把散落的感動整理成屬於你的粉絲生活。",
         primaryCta: "探索 MOSS →",
@@ -32,6 +33,7 @@ const zhTW: Dictionary = {
         eyebrow: "Kodo · 工程異常處理",
         headlineLine1: "讓問題開始前進，",
         headlineLine2: "不再卡在原地。",
+        emphasis: ["問題", "前進", "原地"],
         description:
           "Kodo 以行動為核心，協助工程團隊釐清異常、推進處理，\n把卡住的問題變成可前進的下一步。",
         primaryCta: "探索 Kodo →",
@@ -41,6 +43,7 @@ const zhTW: Dictionary = {
         eyebrow: "影片剪輯服務",
         headlineLine1: "用影像說故事，",
         headlineLine2: "創造值得被記住的\n內容。",
+        emphasis: ["影像", "故事", "記住", "內容"],
         description:
           "從原始素材到最終成品，協助你整理內容、建立節奏，\n製作出適合發布的長影音。",
         primaryCta: "探索影片 →",
@@ -143,6 +146,7 @@ const zhTW: Dictionary = {
       eyebrow: "影片剪輯",
       headlineLine1: "用影像說故事，",
       headlineLine2: "創造值得被記住的\n內容。",
+      emphasis: ["影像", "故事", "記住", "內容"],
       description:
         "從原始素材到最終成品，\n協助你整理內容、建立節奏，\n製作出適合發布的長影音。",
       primaryCta: "聯繫我們 →",
@@ -366,6 +370,7 @@ const en: Dictionary = {
         eyebrow: "MOSS · Fan lifestyle platform",
         headlineLine1: "Cherish every moment,",
         headlineLine2: "discover more beauty.",
+        emphasis: ["moment", "beauty"],
         description:
           "MOSS helps fans collect tickets, keep memories, and follow favorite IPs —\nturning scattered moments into a fan life worth revisiting.",
         primaryCta: "Explore MOSS →",
@@ -375,6 +380,7 @@ const en: Dictionary = {
         eyebrow: "Kodo · Engineering exceptions",
         headlineLine1: "Let problems move forward,",
         headlineLine2: "instead of staying stuck.",
+        emphasis: ["problems", "forward", "stuck"],
         description:
           "Kodo is action-oriented — helping engineering teams clarify exceptions,\nand turn blocked issues into the next step forward.",
         primaryCta: "Explore Kodo →",
@@ -384,6 +390,7 @@ const en: Dictionary = {
         eyebrow: "Film editing service",
         headlineLine1: "Tell stories through film,",
         headlineLine2: "create work worth\nremembering.",
+        emphasis: ["stories", "film", "worth", "remembering"],
         description:
           "From raw footage to the finished piece — organizing content, shaping rhythm,\nand crafting long-form films ready to publish.",
         primaryCta: "Explore films →",
@@ -497,6 +504,7 @@ const en: Dictionary = {
       eyebrow: "Film Editing",
       headlineLine1: "Tell stories through film,",
       headlineLine2: "create work worth\nremembering.",
+      emphasis: ["stories", "film", "worth", "remembering"],
       description:
         "From raw footage to final delivery,\nwe help organize content, build rhythm,\nand craft long-form videos ready to publish.",
       primaryCta: "Contact us →",

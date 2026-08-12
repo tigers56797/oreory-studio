@@ -72,14 +72,14 @@ export function KodoTeams() {
           })}
         </ul>
 
-        <div className="mt-10 space-y-5">
+        <div className="mt-10 min-w-0 space-y-5">
           {kodoMedia.teamsVisuals.map((src, index) => (
             <div
               key={src}
               className="overflow-hidden rounded-[1.5rem] border border-border bg-[#f7f8f7] shadow-soft sm:rounded-[1.75rem]"
             >
               <div
-                className={`relative w-full ${
+                className={`relative w-full max-w-full ${
                   index === 0 ? "aspect-[3746/2482]" : "aspect-[3746/1506]"
                 }`}
               >

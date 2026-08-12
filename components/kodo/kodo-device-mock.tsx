@@ -16,7 +16,7 @@ export function KodoDeviceMock({
   if (variant === "phone") {
     return (
       <div
-        className={`relative w-[150px] overflow-hidden rounded-[1.75rem] border-[5px] border-[#1a1a1a] bg-[#1a1a1a] shadow-[0_20px_50px_rgba(30,50,35,0.18)] sm:w-[170px] ${className}`}
+        className={`relative w-full max-w-[150px] overflow-hidden rounded-[1.75rem] border-[5px] border-[#1a1a1a] bg-[#1a1a1a] shadow-[0_20px_50px_rgba(30,50,35,0.18)] sm:max-w-[170px] ${className}`}
       >
         <div className="relative aspect-[9/19] overflow-hidden rounded-[1.35rem] bg-[#f3f7f3]">
           {src ? (

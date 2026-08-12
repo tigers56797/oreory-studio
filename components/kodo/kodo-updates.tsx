@@ -34,8 +34,8 @@ export function KodoUpdates() {
             </div>
 
             <article className="mt-6 overflow-hidden rounded-[1.35rem] border border-[var(--kodo-primary-muted)] bg-[var(--kodo-primary-soft)]">
-              <div className="grid gap-4 p-5 sm:grid-cols-[1fr_120px] sm:items-center">
-                <div>
+              <div className="grid min-w-0 gap-4 p-5 sm:grid-cols-[minmax(0,1fr)_120px] sm:items-center">
+                <div className="min-w-0">
                   <div className="flex items-baseline justify-between gap-3">
                     <h3 className="text-base font-semibold text-foreground">
                       {featured.version}

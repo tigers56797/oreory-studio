@@ -11,13 +11,13 @@ export function KodoExperience() {
   const copy = dictionary.kodoPage.experience;
 
   return (
-    <Section id="kodo-experience">
+    <Section id="kodo-experience" className="overflow-x-clip">
       <Container>
         <h2 className="text-[clamp(1.55rem,3vw,2.15rem)] font-semibold tracking-[-0.025em] text-foreground">
           {copy.title}
         </h2>
 
-        <ul className="mt-8 flex gap-4 overflow-x-auto pb-2 sm:mt-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <ul className="mt-8 -mx-5 flex gap-4 overflow-x-auto px-5 pb-2 sm:mt-10 sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {kodoExperienceKeys.map((key) => {
             const item = copy.items[key];
             const image = kodoMedia.experience[key];

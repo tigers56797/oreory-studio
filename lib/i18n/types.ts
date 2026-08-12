@@ -39,6 +39,7 @@ export type Dictionary = {
         eyebrow: string;
         headlineLine1: string;
         headlineLine2: string;
+        emphasis: string[];
         description: string;
         primaryCta: string;
         primaryHref: string;
@@ -120,6 +121,7 @@ export type Dictionary = {
       eyebrow: string;
       headlineLine1: string;
       headlineLine2: string;
+      emphasis: string[];
       description: string;
       primaryCta: string;
       secondaryCta: string;

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function KodoPage() {
   return (
-    <div className="kodo-page min-h-full">
+    <div className="kodo-page min-h-full overflow-x-clip">
       <Navbar />
       <main>
         <KodoHero />

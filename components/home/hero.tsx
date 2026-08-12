@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { HeroComposition } from "@/components/home/hero-composition";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Button } from "@/components/ui/button";
+import { EmphasisLine } from "@/components/ui/emphasis-line";
 import { heroBanners } from "@/lib/content/featured";
 
 const AUTO_MS = 7000;
@@ -36,6 +37,10 @@ export function Hero() {
   const active = slides[index] ?? slides[0];
   const slideCopy = dictionary.hero.slides[active.id];
   const featured = dictionary.featured.items[active.id];
+  const headlineLines = [
+    slideCopy.headlineLine1,
+    ...slideCopy.headlineLine2.split("\n"),
+  ];
 
   return (
     <section
@@ -57,13 +62,28 @@ export function Hero() {
                 {slideCopy.eyebrow}
               </p>
 
-              <h1 className="mt-4 font-display text-[clamp(2.35rem,5.1vw,3.9rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground sm:mt-5">
-                <span className="block">{slideCopy.headlineLine1}</span>
-                {slideCopy.headlineLine2.split("\n").map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
+              <h1 className="hero-headline mt-4 font-display text-[clamp(2.35rem,5.1vw,3.9rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground sm:mt-5">
+                {headlineLines.map((line, lineIndex) => {
+                  const toneStart = headlineLines
+                    .slice(0, lineIndex)
+                    .reduce((count, previous) => {
+                      return (
+                        count +
+                        slideCopy.emphasis.filter((word) =>
+                          previous.toLowerCase().includes(word.toLowerCase()),
+                        ).length
+                      );
+                    }, 0);
+
+                  return (
+                    <EmphasisLine
+                      key={`${active.id}-${line}`}
+                      text={line}
+                      words={slideCopy.emphasis}
+                      toneStart={toneStart}
+                    />
+                  );
+                })}
               </h1>
 
               <p className="mt-5 max-w-[28rem] whitespace-pre-line text-[0.95rem] leading-7 text-foreground-muted sm:mt-6 sm:text-base sm:leading-8">

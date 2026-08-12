@@ -26,7 +26,7 @@ export function KodoProblem() {
           </h2>
         </div>
 
-        <ol className="mt-10 grid gap-3 sm:mt-12 sm:grid-cols-5 sm:gap-3">
+        <ol className="mt-10 grid grid-cols-1 gap-3 sm:mt-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3">
           {kodoProblemKeys.map((key, index) => {
             const step = copy.steps[key];
             return (
@@ -58,7 +58,7 @@ export function KodoProblem() {
                 {index < kodoProblemKeys.length - 1 ? (
                   <span
                     aria-hidden
-                    className="absolute top-1/2 -right-2 hidden text-foreground-subtle sm:block"
+                    className="absolute top-1/2 -right-2 hidden text-foreground-subtle lg:block"
                   >
                     →
                   </span>

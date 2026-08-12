@@ -7,18 +7,66 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { filmHeroMedia } from "@/lib/content/films";
 
-function FlickerLine({
+type HeadlinePart = {
+  text: string;
+  hot: boolean;
+  tone: number;
+};
+
+function splitEmphasis(text: string, words: string[]): HeadlinePart[] {
+  const sorted = [...words].sort((a, b) => b.length - a.length);
+  const parts: HeadlinePart[] = [];
+  let index = 0;
+  let tone = 0;
+
+  while (index < text.length) {
+    const rest = text.slice(index);
+    const restLower = rest.toLowerCase();
+    const match = sorted.find(
+      (word) => rest.startsWith(word) || restLower.startsWith(word.toLowerCase()),
+    );
+
+    if (match) {
+      parts.push({
+        text: rest.slice(0, match.length),
+        hot: true,
+        tone: tone++ % 4,
+      });
+      index += match.length;
+      continue;
+    }
+
+    let cursor = index + 1;
+    while (cursor < text.length) {
+      const next = text.slice(cursor);
+      const nextLower = next.toLowerCase();
+      if (
+        sorted.some(
+          (word) => next.startsWith(word) || nextLower.startsWith(word.toLowerCase()),
+        )
+      ) {
+        break;
+      }
+      cursor += 1;
+    }
+
+    parts.push({ text: text.slice(index, cursor), hot: false, tone: 0 });
+    index = cursor;
+  }
+
+  return parts;
+}
+
+function FlickerChars({
   text,
-  lineOffset = 0,
+  lineOffset,
 }: {
   text: string;
-  lineOffset?: number;
+  lineOffset: number;
 }) {
-  const chars = Array.from(text);
-
   return (
-    <span className="block">
-      {chars.map((char, index) => {
+    <>
+      {Array.from(text).map((char, index) => {
         const delay = lineOffset + index * 0.28 + (index % 4) * 0.12;
         const duration = 5.8 + (index % 5) * 0.7 + (index % 3) * 0.35;
 
@@ -37,27 +85,52 @@ function FlickerLine({
           </span>
         );
       })}
-    </span>
+    </>
   );
 }
 
-function FlickerMultiline({
-  lines,
+function HeadlineLine({
+  text,
+  words,
+  lineOffset = 0,
+  flicker = true,
 }: {
-  lines: string[];
+  text: string;
+  words: string[];
+  lineOffset?: number;
+  flicker?: boolean;
 }) {
-  let offset = 0;
+  const parts = splitEmphasis(text, words);
+  let offset = lineOffset;
 
   return (
-    <>
-      {lines.map((line) => {
-        const node = (
-          <FlickerLine key={`${offset}-${line}`} text={line} lineOffset={offset} />
+    <span className="block">
+      {parts.map((part, partIndex) => {
+        const node = part.hot ? (
+          <span
+            key={`${partIndex}-${part.text}`}
+            className={
+              flicker
+                ? `film-hero-emphasis film-hero-emphasis--${part.tone}`
+                : undefined
+            }
+          >
+            {flicker ? (
+              <FlickerChars text={part.text} lineOffset={offset} />
+            ) : (
+              part.text
+            )}
+          </span>
+        ) : flicker ? (
+          <FlickerChars key={`${partIndex}-${part.text}`} text={part.text} lineOffset={offset} />
+        ) : (
+          <span key={`${partIndex}-${part.text}`}>{part.text}</span>
         );
-        offset += Array.from(line).length * 0.08;
+
+        offset += Array.from(part.text).length * 0.08;
         return node;
       })}
-    </>
+    </span>
   );
 }
 
@@ -66,6 +139,7 @@ export function FilmsHero() {
   const copy = dictionary.filmsPage.hero;
   const headlineLines = [copy.headlineLine1, ...copy.headlineLine2.split("\n")];
   const headline = headlineLines.join("");
+  const words = copy.emphasis;
 
   return (
     <section id="top" className="relative pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-16">
@@ -77,20 +151,31 @@ export function FilmsHero() {
             </p>
 
             <h1
-              className="film-hero-headline relative mt-5 font-display text-[clamp(2rem,4.2vw,3.35rem)] font-semibold leading-[1.14] tracking-[-0.03em] text-foreground sm:mt-6"
+              className="film-hero-headline hero-headline relative mt-5 font-display text-[clamp(2rem,4.2vw,3.35rem)] font-semibold leading-[1.14] tracking-[-0.03em] text-foreground sm:mt-6"
               aria-label={headline}
             >
               <span className="relative z-0" aria-hidden="true">
-                <FlickerMultiline lines={headlineLines} />
+                {headlineLines.map((line, index) => (
+                  <HeadlineLine
+                    key={`base-${line}`}
+                    text={line}
+                    words={words}
+                    lineOffset={index * 0.45}
+                  />
+                ))}
               </span>
               <span
                 aria-hidden
                 className="film-hero-shine-layer absolute inset-0 z-10"
               >
-                {headlineLines.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
+                {headlineLines.map((line, index) => (
+                  <HeadlineLine
+                    key={`shine-${line}`}
+                    text={line}
+                    words={words}
+                    lineOffset={index * 0.45}
+                    flicker={false}
+                  />
                 ))}
               </span>
             </h1>

@@ -18,8 +18,8 @@ export function KodoHero() {
       />
 
       <Container className="relative">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.25fr)] lg:gap-8">
-          <div className="animate-fade-up max-w-xl">
+        <div className="grid min-w-0 items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.25fr)] lg:gap-8">
+          <div className="animate-fade-up min-w-0 max-w-xl">
             <div className="flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-tight text-foreground">
                 <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--kodo-primary)] text-sm text-white">
@@ -67,8 +67,8 @@ export function KodoHero() {
             </p>
           </div>
 
-          <div className="animate-fade-up relative flex justify-center [animation-delay:80ms] lg:justify-end">
-            <div className="relative w-full max-w-[820px] scale-[1.06] soft-float lg:max-w-none lg:w-[118%]">
+          <div className="animate-fade-up relative flex min-w-0 justify-center overflow-hidden [animation-delay:80ms] lg:justify-end lg:overflow-visible">
+            <div className="relative w-full max-w-full min-w-0 soft-float lg:max-w-none lg:w-[118%] lg:scale-[1.06]">
               <div className="relative aspect-[3746/1506] w-full">
                 <Image
                   src={kodoMedia.heroVisual}
