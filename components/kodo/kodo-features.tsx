@@ -17,22 +17,23 @@ export function KodoFeatures() {
           {copy.title}
         </h2>
 
-        <ul className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
           {kodoFeatureKeys.map((key, index) => {
             const item = copy.items[key];
             const mascot = kodoMedia.mascots[index % kodoMedia.mascots.length];
+            if (!item || !mascot) return null;
 
             return (
-              <li key={key}>
+              <li key={key} className="min-w-0">
                 <article className="card-lift flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-surface shadow-soft sm:rounded-[1.75rem]">
-                  <div className="aspect-[5/4] bg-[linear-gradient(160deg,#eef5ef_0%,#f7f8f6_55%,#e6efe8_100%)] p-4">
-                    <div className="relative flex h-full items-center justify-center">
+                  <div className="relative aspect-[5/4] overflow-hidden bg-[linear-gradient(160deg,#eef5ef_0%,#f7f8f6_55%,#e6efe8_100%)] p-4">
+                    <div className="relative h-full w-full">
                       <Image
                         src={mascot.src}
                         alt={mascot.alt}
-                        width={180}
-                        height={180}
-                        className="h-[88%] w-auto max-w-full object-contain drop-shadow-[0_14px_24px_rgba(30,50,35,0.12)]"
+                        fill
+                        className="object-contain object-center drop-shadow-[0_14px_24px_rgba(30,50,35,0.12)]"
+                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 260px"
                       />
                     </div>
                   </div>
