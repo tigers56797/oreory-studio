@@ -11,6 +11,12 @@ export type FeaturedContentConfig = {
 
 export const featuredCatalog: FeaturedContentConfig[] = [
   {
+    id: "film",
+    href: "/films",
+    tone: "film",
+    image: "/images/video/hero-film.png",
+  },
+  {
     id: "moss",
     href: "/moss",
     tone: "moss",
@@ -21,12 +27,6 @@ export const featuredCatalog: FeaturedContentConfig[] = [
     href: "/kodo",
     tone: "kodo",
     image: "/images/kodo/maincover2.png",
-  },
-  {
-    id: "film",
-    href: "/films",
-    tone: "film",
-    image: "/images/video/hero-film.png",
   },
 ];
 

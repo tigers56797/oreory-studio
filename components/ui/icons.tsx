@@ -16,7 +16,7 @@ export function BrandMark({
 }: BrandMarkProps) {
   return (
     <Image
-      src="/images/home/logo0811-transparent.png"
+      src="/images/home/logo0819.png"
       alt={title}
       width={64}
       height={64}

@@ -2,7 +2,7 @@
  * Studio principal profile — media path is replaceable.
  */
 export const profileMedia = {
-  photo: "/images/home/logo0811-transparent.png",
+  photo: "/images/home/logo0819.png",
   hasPhoto: true,
   monogram: "O",
 } as const;

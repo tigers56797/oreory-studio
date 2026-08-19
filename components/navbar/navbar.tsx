@@ -122,9 +122,9 @@ export function Navbar() {
   }, [menuOpen]);
 
   const links = [
+    { href: navHrefs.films, label: dictionary.nav.films },
     { href: navHrefs.moss, label: dictionary.nav.moss },
     { href: navHrefs.kodo, label: dictionary.nav.kodo },
-    { href: navHrefs.films, label: dictionary.nav.films },
     { href: navHrefs.contact, label: dictionary.nav.contact },
   ];
 
