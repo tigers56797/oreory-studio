@@ -22,6 +22,7 @@ export type Dictionary = {
   nav: {
     moss: string;
     kodo: string;
+    tsumu: string;
     films: string;
     studio: string;
     contact: string;
@@ -376,6 +377,86 @@ export type Dictionary = {
       title: string;
       primary: string;
       secondary: string;
+    };
+  };
+  tsumuPage: {
+    meta: {
+      title: string;
+      description: string;
+    };
+    hero: {
+      name: string;
+      headline: string;
+      description: string;
+      primaryCta: string;
+      primaryPending: string;
+      secondaryCta: string;
+      highlights: string[];
+      worldAlt: string;
+      mascotAlt: string;
+      screenPending: string;
+    };
+    problem: {
+      title: string;
+      description: string;
+      items: Record<
+        "scattered" | "growth" | "risk",
+        { title: string; description: string }
+      >;
+    };
+    features: {
+      title: string;
+      items: Record<
+        "netWorth" | "growth" | "compass" | "companion",
+        { title: string; description: string }
+      >;
+    };
+    showcase: {
+      title: string;
+      description: string;
+      prev: string;
+      next: string;
+      pending: string;
+      items: Record<
+        "overview" | "growth" | "compass" | "island" | "companion",
+        { title: string; description: string }
+      >;
+    };
+    story: {
+      headline: string;
+      description: string;
+      worldAlt: string;
+      mascotAlt: string;
+    };
+    updates: {
+      title: string;
+      viewAll: string;
+      collapse: string;
+      latest: string;
+      empty: string;
+      labels: {
+        added: string;
+        improved: string;
+        fixed: string;
+      };
+    };
+    testimonials: {
+      title: string;
+      ratingLabel: string;
+    };
+    faq: {
+      title: string;
+      items: Record<
+        "what" | "mobile" | "free" | "manage" | "privacy",
+        { question: string; answer: string }
+      >;
+    };
+    support: {
+      title: string;
+      description: string;
+      feedback: { title: string; description: string; cta: string };
+      email: { title: string; description: string };
+      privacy: { title: string; description: string; cta: string; pending: string };
     };
   };
 };

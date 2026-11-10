@@ -10,10 +10,12 @@ import { Container } from "@/components/ui/container";
 import { BrandMark } from "@/components/ui/icons";
 import { kodoLinks } from "@/lib/content/kodo";
 import { mossLinks } from "@/lib/content/moss";
+import { tsumuLinks } from "@/lib/content/tsumu";
 
 const navHrefs = {
   moss: "/moss",
   kodo: "/kodo",
+  tsumu: "/tsumu",
   films: "/films",
   contact: "/contact",
 } as const;
@@ -58,6 +60,7 @@ export function Navbar() {
   const pathname = usePathname();
   const isMoss = pathname.startsWith("/moss");
   const isKodo = pathname.startsWith("/kodo");
+  const isTsumu = pathname.startsWith("/tsumu");
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const panelId = useId();
@@ -125,6 +128,7 @@ export function Navbar() {
     { href: navHrefs.films, label: dictionary.nav.films },
     { href: navHrefs.moss, label: dictionary.nav.moss },
     { href: navHrefs.kodo, label: dictionary.nav.kodo },
+    { href: navHrefs.tsumu, label: dictionary.nav.tsumu },
     { href: navHrefs.contact, label: dictionary.nav.contact },
   ];
 
@@ -145,6 +149,15 @@ export function Navbar() {
       className="!bg-[var(--kodo-primary)] !px-4 !py-2 !text-[12px] !text-white hover:!bg-[var(--kodo-primary-hover)]"
     >
       {dictionary.kodoPage.navCta}
+    </Button>
+  ) : isTsumu && tsumuLinks.app ? (
+    <Button
+      href={tsumuLinks.app}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="!bg-[var(--tsumu-primary)] !px-4 !py-2 !text-[12px] !text-white hover:!bg-[var(--tsumu-primary-hover)]"
+    >
+      {dictionary.tsumuPage.hero.primaryCta}
     </Button>
   ) : null;
 

@@ -1,12 +1,14 @@
 import type { Dictionary, Locale } from "./types";
 import { kodoPageEn, kodoPageZh } from "./kodo";
 import { mossPageEn, mossPageZh } from "./moss";
+import { tsumuPageEn, tsumuPageZh } from "./tsumu";
 
 const zhTW: Dictionary = {
   brand: "OREORY STUDIO",
   nav: {
     moss: "MOSS",
     kodo: "Kodo",
+    tsumu: "TSUMU 養錢",
     films: "影片製作",
     studio: "關於我們",
     contact: "聯繫我們",
@@ -347,6 +349,7 @@ const zhTW: Dictionary = {
   },
   mossPage: mossPageZh,
   kodoPage: kodoPageZh,
+  tsumuPage: tsumuPageZh,
 };
 
 const en: Dictionary = {
@@ -354,6 +357,7 @@ const en: Dictionary = {
   nav: {
     moss: "MOSS",
     kodo: "Kodo",
+    tsumu: "TSUMU",
     films: "Films",
     studio: "About",
     contact: "Contact",
@@ -706,6 +710,7 @@ const en: Dictionary = {
   },
   mossPage: mossPageEn,
   kodoPage: kodoPageEn,
+  tsumuPage: tsumuPageEn,
 };
 
 export const dictionaries: Record<Locale, Dictionary> = {

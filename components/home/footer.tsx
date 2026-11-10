@@ -11,6 +11,7 @@ import { siteContact } from "@/lib/contact";
 const productLinks = [
   { href: "/moss", key: "moss" as const },
   { href: "/kodo", key: "kodo" as const },
+  { href: "/tsumu", key: "tsumu" as const },
 ];
 
 const otherLinks = [

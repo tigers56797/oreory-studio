@@ -56,6 +56,17 @@
   --background: #f7f8f6;
 }
 
+.tsumu-page {
+  --tsumu-primary: #2f6b4f;
+  --tsumu-primary-hover: #26583f;
+  --tsumu-primary-soft: #eaf4ee;
+  --tsumu-primary-muted: #d4e8db;
+  --tsumu-sky: #e3f1fb;
+  --tsumu-butter: #fbf2d6;
+  --tsumu-glow: rgba(120, 190, 150, 0.22);
+  --background: #faf7f0;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -735,6 +746,19 @@ body {
     rgba(255, 255, 255, 0.15) 45%,
     rgba(255, 255, 255, 0.95) 50%,
     rgba(183, 212, 188, 0.75) 54%,
+    transparent 62%,
+    transparent 100%
+  );
+}
+
+.tsumu-page .product-hero-shine-layer {
+  background-image: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(251, 226, 160, 0.7) 54%,
     transparent 62%,
     transparent 100%
   );
