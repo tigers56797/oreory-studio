@@ -195,6 +195,26 @@ body {
   animation: soft-float 5.5s ease-in-out infinite;
 }
 
+@keyframes collab-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-12px, 8px, 0);
+  }
+}
+
+.collab-drift {
+  animation: collab-drift 16s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collab-drift {
+    animation: none;
+  }
+}
+
 /* Contact — Professional Profile Card */
 .profile-aurora {
   background:

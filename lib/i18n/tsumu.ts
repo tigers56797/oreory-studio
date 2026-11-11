@@ -106,8 +106,17 @@ export const tsumuPageZh: Dictionary["tsumuPage"] = {
     },
   },
   testimonials: {
-    title: "使用者怎麼說",
+    title: "使用者評價",
     ratingLabel: "評分",
+    totalLabel: "則評價",
+    viewAll: "查看全部 →",
+    collapse: "收合",
+    emptyTitle: "期待聽見你的使用心得",
+    emptyDescription:
+      "TSUMU 持續更新中，目前還沒有公開的使用者評價。不論是喜歡的地方、使用上的卡關，或希望新增的功能，都歡迎告訴我們。",
+    shareCta: "分享使用心得 →",
+    shareSubject: "TSUMU 使用心得",
+    feedbackCta: "回報問題或建議",
   },
   faq: {
     title: "常見問題",
@@ -267,8 +276,17 @@ export const tsumuPageEn: Dictionary["tsumuPage"] = {
     },
   },
   testimonials: {
-    title: "What users say",
+    title: "User reviews",
     ratingLabel: "Rating",
+    totalLabel: "reviews",
+    viewAll: "View all →",
+    collapse: "Show less",
+    emptyTitle: "We'd love to hear from you",
+    emptyDescription:
+      "TSUMU is continuously evolving and there are no public reviews yet. Tell us what you enjoy, where you got stuck, or what you'd like to see next.",
+    shareCta: "Share your experience →",
+    shareSubject: "TSUMU feedback",
+    feedbackCta: "Report an issue or idea",
   },
   faq: {
     title: "FAQ",

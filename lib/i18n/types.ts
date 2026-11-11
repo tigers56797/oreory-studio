@@ -17,6 +17,88 @@ export type FilmWorkCategoryKey =
   | "youtube"
   | "concert";
 
+type HomeProductCopy = {
+  name: string;
+  tagline: string;
+  description: string;
+};
+
+export type HomeCopy = {
+  hero: {
+    eyebrow: string;
+    headline: string;
+    highlight: string;
+    description: string;
+    primaryCta: string;
+    secondaryCta: string;
+    prev: string;
+    next: string;
+    visit: string;
+  };
+  products: {
+    eyebrow: string;
+    title: string;
+    items: Record<"moss" | "kodo" | "tsumu", HomeProductCopy>;
+  };
+  studio: {
+    eyebrow: string;
+    headline: string;
+    description: string;
+    expertise: Record<"product" | "experience" | "development" | "content", string>;
+  };
+  stats: {
+    eyebrow: string;
+    headline: string;
+    items: Record<
+      "products" | "expertise" | "services" | "users" | "updates",
+      { label: string; unit: string; detail?: string }
+    >;
+  };
+  testimonials: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    prev: string;
+    next: string;
+  };
+  articles: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    viewAll: string;
+    viewAllPending: string;
+    read: string;
+    pendingCategory: string;
+    pendingTitle: string;
+    pageEmptyTitle: string;
+    pageEmptyDescription: string;
+    backHome: string;
+  };
+  collaboration: {
+    eyebrow: string;
+    headline: string;
+    description: string;
+    contactCta: string;
+    donateCta: string;
+    donatePending: string;
+  };
+  footer: {
+    tagline: string;
+    products: string;
+    studio: string;
+    support: string;
+    social: string;
+    about: string;
+    articles: string;
+    contact: string;
+    terms: string;
+    privacy: string;
+    donate: string;
+    pending: string;
+    rights: string;
+  };
+};
+
 export type Dictionary = {
   brand: string;
   nav: {
@@ -26,7 +108,14 @@ export type Dictionary = {
     films: string;
     studio: string;
     contact: string;
+    products: string;
+    articles: string;
+    about: string;
+    partner: string;
+    menuOpen: string;
+    menuClose: string;
   };
+  home: HomeCopy;
   locale: {
     zh: string;
     en: string;
@@ -443,6 +532,14 @@ export type Dictionary = {
     testimonials: {
       title: string;
       ratingLabel: string;
+      totalLabel: string;
+      viewAll: string;
+      collapse: string;
+      emptyTitle: string;
+      emptyDescription: string;
+      shareCta: string;
+      shareSubject: string;
+      feedbackCta: string;
     };
     faq: {
       title: string;

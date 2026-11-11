@@ -1,69 +1,116 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+import { SectionHeading } from "@/components/home/section-heading";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
-import { MediaPlaceholder } from "@/components/ui/media-placeholder";
 import { Section } from "@/components/ui/section";
+import { homeProducts, type HomeProductId } from "@/lib/content/home";
 
-const products = [
-  {
-    key: "moss" as const,
-    href: "/moss",
-    tone: "moss" as const,
-    image: "/images/moss/mosscover.png",
+const tones: Record<HomeProductId, { card: string; accent: string; badge: string }> = {
+  moss: {
+    card: "border-[#e7e0ff] bg-[linear-gradient(150deg,#f6f3ff_0%,#ece6ff_100%)]",
+    accent: "text-[#7b61ff]",
+    badge: "bg-[#7b61ff]",
   },
-  {
-    key: "kodo" as const,
-    href: "/kodo",
-    tone: "kodo" as const,
-    image: "/images/kodo/maincover2.png",
+  kodo: {
+    card: "border-[#ffe3cc] bg-[linear-gradient(150deg,#fff7ef_0%,#ffe8d4_100%)]",
+    accent: "text-[#e07a2e]",
+    badge: "bg-[#f29a4a]",
   },
-];
+  tsumu: {
+    card: "border-[#d6eedd] bg-[linear-gradient(150deg,#f1faf3_0%,#e0f2e6_100%)]",
+    accent: "text-[#2f6b4f]",
+    badge: "bg-[#2f6b4f]",
+  },
+};
 
 export function Products() {
   const { dictionary } = useLocale();
+  const copy = dictionary.home.products;
 
   return (
     <Section id="products">
       <Container>
-        <div className="mb-7 sm:mb-9">
-          <h2 className="text-[11px] font-semibold tracking-[0.2em] text-foreground-subtle">
-            {dictionary.products.title}
-          </h2>
-        </div>
+        <SectionHeading eyebrow={copy.eyebrow} title={copy.title} />
 
-        <div className="grid gap-4 md:grid-cols-2 md:gap-5">
-          {products.map((product) => {
-            const copy = dictionary.products.items[product.key];
+        <ul className="mt-7 grid grid-cols-1 gap-4 sm:mt-9 md:grid-cols-3 md:gap-5">
+          {homeProducts.map((product) => {
+            const item = copy.items[product.id];
+            const tone = tones[product.id];
             return (
-              <a
-                key={product.key}
-                href={product.href}
-                className="card-lift group overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-card sm:rounded-[2rem]"
-                aria-label={copy.name}
-              >
-                <div className="overflow-hidden">
-                  <div className="transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-[1.02]">
-                    <MediaPlaceholder
-                      tone={product.tone}
-                      src={product.image}
-                      alt={copy.name}
-                      aspectClassName="aspect-[5/4] sm:aspect-[4/3]"
-                    />
+              <li key={product.id} className="min-w-0">
+                <Link
+                  href={product.href}
+                  className={`group relative flex h-full min-h-[17rem] flex-col overflow-hidden rounded-[1.75rem] border p-6 shadow-soft transition-[transform,box-shadow] duration-300 ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-card sm:min-h-[18.5rem] ${tone.card}`}
+                >
+                  <div className="relative z-10 flex items-center gap-3">
+                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-soft">
+                      {product.logo ? (
+                        <Image
+                          src={product.logo}
+                          alt=""
+                          width={30}
+                          height={30}
+                          className="h-7 w-7 object-contain"
+                        />
+                      ) : (
+                        <span
+                          aria-hidden
+                          className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-[13px] text-white ${tone.badge}`}
+                        >
+                          ✦
+                        </span>
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                        {item.name}
+                      </h3>
+                      <p className={`text-[12px] font-medium ${tone.accent}`}>{item.tagline}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="px-5 py-5 sm:px-6 sm:py-6">
-                  <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-[1.35rem]">
-                    {copy.name}
-                  </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                    {copy.description}
+
+                  <p className="relative z-10 mt-4 max-w-[58%] text-[13px] leading-relaxed text-foreground-muted sm:text-sm">
+                    {item.description}
                   </p>
-                </div>
-              </a>
+
+                  <span
+                    aria-hidden
+                    className="relative z-10 mt-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/10 bg-white text-foreground shadow-soft transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+
+                  {product.imageFit === "phone" ? (
+                    <div className="absolute right-5 -bottom-10 w-[38%] max-w-[150px] rotate-[5deg] overflow-hidden rounded-[1.4rem] border-[5px] border-white bg-white shadow-card transition-transform duration-300 ease-[var(--ease-out)] group-hover:scale-[1.04]">
+                      <div className="relative aspect-[9/19]">
+                        <Image
+                          src={product.image}
+                          alt=""
+                          fill
+                          className="object-cover object-top"
+                          sizes="150px"
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="absolute -right-2 -bottom-3 aspect-square w-[54%] max-w-[210px] transition-transform duration-300 ease-[var(--ease-out)] group-hover:scale-[1.04]">
+                      <Image
+                        src={product.image}
+                        alt=""
+                        fill
+                        className="object-contain drop-shadow-[0_16px_24px_rgba(40,60,40,0.16)]"
+                        sizes="210px"
+                      />
+                    </div>
+                  )}
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </Container>
     </Section>
   );

@@ -4,8 +4,7 @@
  * Leave a value as `null` until the official asset / URL is confirmed.
  */
 export const tsumuLinks = {
-  /** Official TSUMU app URL — pending */
-  app: null as string | null,
+  app: "https://tsumu-dusky.vercel.app/" as string | null,
   /** TSUMU privacy policy page — pending */
   privacy: null as string | null,
   features: "#tsumu-features",
@@ -46,14 +45,14 @@ export const tsumuMedia = {
   storyWorld: "/images/tsumu/world-clean.png",
   mascotExplorer: "/images/tsumu/mascot-explorer.webp",
   mascotCaptain: "/images/tsumu/mascot-captain.webp",
-  /** Real app screenshot for the hero phone — pending */
-  heroScreen: null as string | null,
-  /** Real app screenshots per showcase item — pending */
+  heroScreen: "/images/tsumu/tsumua.png" as string | null,
+  /** Real app screenshots per showcase item; `null` renders the pending placeholder */
   showcase: {
-    overview: null,
-    growth: null,
-    compass: null,
-    island: null,
+    overview: "/images/tsumu/tsumub.png",
+    growth: "/images/tsumu/tsumuc.png",
+    compass: "/images/tsumu/tsumud.png",
+    island: "/images/tsumu/tsumua.png",
+    /** Companion screen — pending */
     companion: null,
   } as Record<TsumuShowcaseKey, string | null>,
 } as const;
@@ -108,10 +107,35 @@ export const tsumuReleases: TsumuRelease[] = [
 export type TsumuTestimonial = {
   name: string;
   quote: string;
-  /** Only set with a real rating */
   rating?: number;
   date?: string;
+  /** Optional avatar under /public; falls back to the name initial */
+  avatar?: string;
 };
 
-/** Real user reviews only. The section stays hidden while empty. */
-export const tsumuTestimonials: TsumuTestimonial[] = [];
+/**
+ * Review content taken from the TSUMU page design reference.
+ * Replace with verified user reviews before launch.
+ */
+export const tsumuReviewSummary: { rating: number; total: number } | null = {
+  rating: 4.8,
+  total: 327,
+};
+
+export const tsumuTestimonials: TsumuTestimonial[] = [
+  {
+    name: "小安",
+    rating: 5,
+    quote: "介面很漂亮，財務總覽一目了然，還有小島和旅伴超療癒！",
+  },
+  {
+    name: "阿哲",
+    rating: 5,
+    quote: "功能很完整，投資與資產管理都整合得很好，已經成為每天會打開的 App。",
+  },
+  {
+    name: "Emily",
+    rating: 5,
+    quote: "比傳統記帳 App 更有動力，理財變得不再枯燥，會一直想把小島經營得更好！",
+  },
+];

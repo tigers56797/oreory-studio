@@ -34,7 +34,7 @@ export function TsumuPhoneFrame({
             alt={alt}
             fill
             priority={priority}
-            className="object-contain object-top"
+            className="object-cover object-top"
             sizes={sizes}
           />
         ) : (

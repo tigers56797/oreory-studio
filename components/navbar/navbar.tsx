@@ -1,24 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { LocaleSwitch } from "@/components/navbar/locale-switch";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { BrandMark } from "@/components/ui/icons";
+import { brandLogos, homeLinks } from "@/lib/content/home";
 import { kodoLinks } from "@/lib/content/kodo";
 import { mossLinks } from "@/lib/content/moss";
 import { tsumuLinks } from "@/lib/content/tsumu";
 
-const navHrefs = {
-  moss: "/moss",
-  kodo: "/kodo",
-  tsumu: "/tsumu",
-  films: "/films",
-  contact: "/contact",
-} as const;
+const productLinks = [
+  { id: "moss", href: "/moss" },
+  { id: "kodo", href: "/kodo" },
+  { id: "tsumu", href: "/tsumu" },
+] as const;
 
 function getScrollY() {
   return window.scrollY || document.documentElement.scrollTop || 0;
@@ -55,6 +54,39 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
+function ChevronDown({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <path
+        d="M6.5 9.5l5.5 5.5 5.5-5.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function BrandLogo({ className = "" }: { className?: string }) {
+  return (
+    <Image
+      src={brandLogos.horizontalRainbow}
+      alt="oreory studio"
+      width={1700}
+      height={304}
+      priority
+      className={`w-auto object-contain ${className}`}
+    />
+  );
+}
+
+const linkBase =
+  "rounded-full px-3.5 py-2 text-[13px] transition-[color,background-color,box-shadow] duration-[var(--duration-fast)]";
+const linkIdle =
+  "text-foreground-muted hover:bg-foreground/[0.04] hover:text-foreground";
+const linkActive = "bg-foreground text-white shadow-soft";
+
 export function Navbar() {
   const { dictionary } = useLocale();
   const pathname = usePathname();
@@ -63,12 +95,38 @@ export function Navbar() {
   const isTsumu = pathname.startsWith("/tsumu");
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const panelId = useId();
+  const productsMenuId = useId();
+  const productsRef = useRef<HTMLLIElement>(null);
 
-  useEffect(() => {
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (lastPathname !== pathname) {
+    setLastPathname(pathname);
     setHidden(false);
     setMenuOpen(false);
-  }, [pathname]);
+    setProductsOpen(false);
+  }
+
+  useEffect(() => {
+    if (!productsOpen) return;
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!productsRef.current?.contains(event.target as Node)) {
+        setProductsOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setProductsOpen(false);
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [productsOpen]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -108,6 +166,7 @@ export function Navbar() {
           setHidden(false);
         } else if (delta > 5) {
           setHidden(true);
+          setProductsOpen(false);
         } else if (delta < -5) {
           setHidden(false);
         }
@@ -124,12 +183,20 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
+  const products = productLinks.map((product) => ({
+    ...product,
+    label: dictionary.nav[product.id],
+    tagline: dictionary.home.products.items[product.id].tagline,
+  }));
+  const productsActive = products.some((product) =>
+    isActivePath(pathname, product.href),
+  );
+
   const links = [
-    { href: navHrefs.films, label: dictionary.nav.films },
-    { href: navHrefs.moss, label: dictionary.nav.moss },
-    { href: navHrefs.kodo, label: dictionary.nav.kodo },
-    { href: navHrefs.tsumu, label: dictionary.nav.tsumu },
-    { href: navHrefs.contact, label: dictionary.nav.contact },
+    { href: homeLinks.films, label: dictionary.nav.films },
+    { href: homeLinks.articles, label: dictionary.nav.articles },
+    { href: `/${homeLinks.studio}`, label: dictionary.nav.about },
+    { href: homeLinks.contact, label: dictionary.nav.partner },
   ];
 
   const productCta = isMoss ? (
@@ -171,7 +238,7 @@ export function Navbar() {
         <Container>
           <nav
             aria-label="Primary"
-            className="pointer-events-auto mx-auto grid h-14 max-w-[72rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 rounded-2xl border border-border bg-white/75 px-3 shadow-nav backdrop-blur-xl sm:h-16 sm:gap-3 sm:rounded-[1.25rem] sm:px-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
+            className="pointer-events-auto mx-auto grid h-14 max-w-[72rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 rounded-2xl border border-border bg-white/80 px-3 shadow-nav backdrop-blur-xl sm:h-16 sm:gap-3 sm:rounded-[1.25rem] sm:px-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
           >
             <div className="flex min-w-0 items-center gap-1.5 justify-self-start sm:gap-3">
               <button
@@ -179,36 +246,82 @@ export function Navbar() {
                 className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-foreground transition-colors hover:border-border-strong lg:hidden"
                 aria-expanded={menuOpen}
                 aria-controls={panelId}
-                aria-label={menuOpen ? "關閉選單" : "開啟選單"}
+                aria-label={menuOpen ? dictionary.nav.menuClose : dictionary.nav.menuOpen}
                 onClick={() => setMenuOpen((open) => !open)}
               >
                 <MenuIcon open={menuOpen} />
               </button>
 
-              <Link
-                href="/"
-                className="flex min-w-0 items-center gap-2.5 text-foreground sm:gap-3"
-              >
-                <BrandMark className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" title="Oreory Studio" />
-                <span className="truncate text-[11px] font-semibold tracking-[0.16em] sm:text-[12px] sm:tracking-[0.2em]">
-                  {dictionary.brand}
-                </span>
+              <Link href="/" className="flex min-w-0 items-center" aria-label="oreory studio">
+                <BrandLogo className="h-[20px] sm:h-[24px]" />
               </Link>
             </div>
 
             <ul className="hidden items-center gap-0.5 justify-self-center lg:flex">
+              <li
+                ref={productsRef}
+                className="relative"
+                onMouseEnter={() => setProductsOpen(true)}
+                onMouseLeave={() => setProductsOpen(false)}
+              >
+                <button
+                  type="button"
+                  aria-expanded={productsOpen}
+                  aria-controls={productsMenuId}
+                  onClick={() => setProductsOpen(true)}
+                  className={`${linkBase} inline-flex items-center gap-1 ${
+                    productsActive ? linkActive : linkIdle
+                  }`}
+                >
+                  {dictionary.nav.products}
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      productsOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                <div
+                  id={productsMenuId}
+                  className={`absolute top-full left-1/2 z-10 w-64 -translate-x-1/2 pt-3 transition-[opacity,transform] duration-200 ease-[var(--ease-out)] ${
+                    productsOpen
+                      ? "visible translate-y-0 opacity-100"
+                      : "invisible -translate-y-1 opacity-0"
+                  }`}
+                >
+                  <ul className="rounded-2xl border border-border bg-white/95 p-2 shadow-card backdrop-blur-xl">
+                    {products.map((product) => {
+                      const active = isActivePath(pathname, product.href);
+                      return (
+                        <li key={product.id}>
+                          <Link
+                            href={product.href}
+                            aria-current={active ? "page" : undefined}
+                            className={`block rounded-xl px-3.5 py-2.5 transition-colors ${
+                              active ? "bg-foreground/[0.05]" : "hover:bg-foreground/[0.04]"
+                            }`}
+                          >
+                            <span className="block text-[13px] font-semibold text-foreground">
+                              {product.label}
+                            </span>
+                            <span className="mt-0.5 block text-[12px] text-foreground-subtle">
+                              {product.tagline}
+                            </span>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </li>
+
               {links.map((link) => {
                 const active = isActivePath(pathname, link.href);
                 return (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={[
-                        "rounded-full px-3.5 py-2 text-[13px] transition-[color,background-color,box-shadow] duration-[var(--duration-fast)]",
-                        active
-                          ? "bg-foreground text-white shadow-soft"
-                          : "text-foreground-muted hover:bg-foreground/[0.04] hover:text-foreground",
-                      ].join(" ")}
+                      className={`${linkBase} ${active ? linkActive : linkIdle}`}
                       aria-current={active ? "page" : undefined}
                     >
                       {link.label}
@@ -242,7 +355,7 @@ export function Navbar() {
             "absolute inset-0 bg-foreground/25 backdrop-blur-[2px] transition-opacity duration-300",
             menuOpen ? "opacity-100" : "opacity-0",
           ].join(" ")}
-          aria-label="關閉選單"
+          aria-label={dictionary.nav.menuClose}
           onClick={() => setMenuOpen(false)}
         />
 
@@ -254,24 +367,50 @@ export function Navbar() {
           ].join(" ")}
         >
           <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-4">
-            <div className="flex min-w-0 items-center gap-2.5">
-              <BrandMark className="h-7 w-7 shrink-0" title="Oreory Studio" />
-              <span className="truncate text-[11px] font-semibold tracking-[0.16em]">
-                {dictionary.brand}
-              </span>
-            </div>
+            <BrandLogo className="h-[20px]" />
             <button
               type="button"
               className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-border text-foreground transition-colors hover:border-border-strong"
-              aria-label="關閉選單"
+              aria-label={dictionary.nav.menuClose}
               onClick={() => setMenuOpen(false)}
             >
               <MenuIcon open />
             </button>
           </div>
 
-          <nav aria-label="Mobile" className="flex-1 px-3 py-4">
+          <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-3 py-4">
+            <p className="px-3.5 pb-1 text-[11px] font-semibold tracking-[0.16em] text-foreground-subtle">
+              {dictionary.nav.products}
+            </p>
             <ul className="space-y-1">
+              {products.map((product) => {
+                const active = isActivePath(pathname, product.href);
+                return (
+                  <li key={product.id}>
+                    <Link
+                      href={product.href}
+                      className={[
+                        "flex flex-col rounded-xl px-3.5 py-2.5 transition-colors",
+                        active
+                          ? "bg-foreground text-white"
+                          : "text-foreground hover:bg-foreground/[0.03]",
+                      ].join(" ")}
+                      aria-current={active ? "page" : undefined}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <span className="text-[15px] font-medium">{product.label}</span>
+                      <span
+                        className={`text-[12px] ${active ? "text-white/70" : "text-foreground-subtle"}`}
+                      >
+                        {product.tagline}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <ul className="mt-4 space-y-1 border-t border-border pt-4">
               {links.map((link) => {
                 const active = isActivePath(pathname, link.href);
                 return (

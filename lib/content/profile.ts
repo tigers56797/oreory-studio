@@ -2,7 +2,7 @@
  * Studio principal profile — media path is replaceable.
  */
 export const profileMedia = {
-  photo: "/images/home/logo0819.png",
+  photo: "/images/brand/oreory-logo-symbol-rainbow.png",
   hasPhoto: true,
   monogram: "O",
 } as const;

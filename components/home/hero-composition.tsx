@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useLocale } from "@/components/providers/locale-provider";
-import type { FeaturedContentConfig } from "@/lib/content/featured";
 import { kodoMedia } from "@/lib/content/kodo";
 import { mossMedia } from "@/lib/content/moss";
+import { tsumuMedia } from "@/lib/content/tsumu";
 
 type FloatCardProps = {
   label: string;
@@ -52,51 +52,34 @@ function FloatCard({
   );
 }
 
-function AuroraWash({ tone }: { tone: FeaturedContentConfig["tone"] }) {
-  if (tone === "moss") {
-    return (
-      <>
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-10 right-0 h-[70%] w-[75%] rounded-full bg-[radial-gradient(circle_at_center,rgba(196,181,255,0.42),transparent_68%)] blur-2xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-0 left-[-10%] h-[55%] w-[60%] rounded-full bg-[radial-gradient(circle_at_center,rgba(186,205,255,0.35),transparent_70%)] blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-[35%] right-[10%] h-[40%] w-[45%] rounded-full bg-[radial-gradient(circle_at_center,rgba(232,214,180,0.32),transparent_70%)] blur-3xl"
-        />
-      </>
-    );
-  }
+type CompositionTone = "moss" | "kodo" | "tsumu";
 
-  if (tone === "kodo") {
-    return (
-      <>
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-8 right-4 h-[65%] w-[70%] rounded-full bg-[radial-gradient(circle_at_center,rgba(183,212,188,0.45),transparent_68%)] blur-2xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-4 left-0 h-[50%] w-[55%] rounded-full bg-[radial-gradient(circle_at_center,rgba(214,224,210,0.5),transparent_70%)] blur-3xl"
-        />
-      </>
-    );
-  }
+const auroraLayers: Record<CompositionTone, string[]> = {
+  moss: [
+    "-top-10 right-0 h-[70%] w-[75%] bg-[radial-gradient(circle_at_center,rgba(196,181,255,0.42),transparent_68%)] blur-2xl",
+    "bottom-0 left-[-10%] h-[55%] w-[60%] bg-[radial-gradient(circle_at_center,rgba(186,205,255,0.35),transparent_70%)] blur-3xl",
+    "top-[35%] right-[10%] h-[40%] w-[45%] bg-[radial-gradient(circle_at_center,rgba(232,214,180,0.32),transparent_70%)] blur-3xl",
+  ],
+  kodo: [
+    "-top-8 right-4 h-[65%] w-[70%] bg-[radial-gradient(circle_at_center,rgba(255,200,150,0.42),transparent_68%)] blur-2xl",
+    "bottom-4 left-0 h-[50%] w-[55%] bg-[radial-gradient(circle_at_center,rgba(214,224,210,0.5),transparent_70%)] blur-3xl",
+  ],
+  tsumu: [
+    "-top-8 right-0 h-[65%] w-[70%] bg-[radial-gradient(circle_at_center,rgba(170,220,185,0.45),transparent_68%)] blur-2xl",
+    "bottom-0 left-[-5%] h-[50%] w-[55%] bg-[radial-gradient(circle_at_center,rgba(190,225,245,0.45),transparent_70%)] blur-3xl",
+  ],
+};
 
+function AuroraWash({ tone }: { tone: CompositionTone }) {
   return (
     <>
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-6 right-0 h-[60%] w-[70%] rounded-full bg-[radial-gradient(circle_at_center,rgba(212,199,180,0.4),transparent_68%)] blur-2xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-[-5%] h-[50%] w-[55%] rounded-full bg-[radial-gradient(circle_at_center,rgba(230,220,208,0.45),transparent_70%)] blur-3xl"
-      />
+      {auroraLayers[tone].map((layer) => (
+        <div
+          key={layer}
+          aria-hidden
+          className={`pointer-events-none absolute rounded-full ${layer}`}
+        />
+      ))}
     </>
   );
 }
@@ -228,42 +211,56 @@ function KodoComposition() {
   );
 }
 
-function FilmComposition({ image }: { image?: string }) {
+function TsumuComposition() {
   const { dictionary } = useLocale();
-  const copy = dictionary.featured.items.film;
+  const copy = dictionary.home.products.items.tsumu;
 
   return (
-    <div className="relative mx-auto h-[420px] w-full max-w-[36rem] sm:h-[480px] lg:mx-0 lg:h-[560px] lg:max-w-none">
-      <AuroraWash tone="film" />
-      <div className="absolute top-1/2 left-1/2 z-20 w-[min(88%,420px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2rem] border border-border bg-surface shadow-card">
-        <div className="hero-float-mock relative aspect-[4/3]">
-          {image ? (
-            <Image
-              src={image}
-              alt={copy.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 90vw, 420px"
-            />
-          ) : (
-            <div className="absolute inset-0 bg-[#e6dfd6]" />
-          )}
+    <div className="relative mx-auto h-[420px] w-full max-w-[36rem] sm:h-[480px] lg:mx-0 lg:h-[540px] lg:max-w-none">
+      <AuroraWash tone="tsumu" />
+      <div className="absolute top-1/2 left-1/2 z-20 w-[min(86%,420px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2rem] border border-white/80 shadow-card">
+        <div className="hero-float-mock relative aspect-[1448/1086]">
+          <Image
+            src={tsumuMedia.heroWorld}
+            alt={copy.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 86vw, 420px"
+          />
         </div>
       </div>
-      <div className="hero-float-card absolute top-[12%] right-[4%] z-30 rounded-2xl border border-white/70 bg-white/70 px-4 py-3 shadow-soft backdrop-blur-md">
-        <p className="text-[11px] font-medium text-foreground-muted">{copy.title}</p>
-        <p className="mt-0.5 text-sm font-semibold text-foreground">{copy.description}</p>
+      <div className="hero-bounce absolute bottom-[10%] left-[2%] z-30 aspect-square w-[30%] max-w-[150px]">
+        <Image
+          src={tsumuMedia.mascotExplorer}
+          alt=""
+          fill
+          className="object-contain drop-shadow-[0_18px_28px_rgba(40,60,40,0.18)]"
+          sizes="150px"
+        />
+      </div>
+      <div className="hero-float-card absolute top-[12%] right-[2%] z-30 flex items-center gap-2.5 rounded-2xl border border-white/70 bg-white/75 px-3.5 py-2.5 shadow-soft backdrop-blur-md sm:right-[4%]">
+        <Image
+          src={tsumuMedia.logo}
+          alt=""
+          width={32}
+          height={32}
+          className="h-8 w-8 object-contain"
+        />
+        <div>
+          <p className="text-[12px] font-semibold text-foreground">{copy.name}</p>
+          <p className="text-[11px] text-foreground-muted">{copy.tagline}</p>
+        </div>
       </div>
     </div>
   );
 }
 
 type HeroCompositionProps = {
-  slide: FeaturedContentConfig;
+  tone: CompositionTone;
   active: boolean;
 };
 
-export function HeroComposition({ slide, active }: HeroCompositionProps) {
+export function HeroComposition({ tone, active }: HeroCompositionProps) {
   return (
     <div
       className={[
@@ -272,12 +269,12 @@ export function HeroComposition({ slide, active }: HeroCompositionProps) {
       ].join(" ")}
       aria-hidden={!active}
     >
-      {slide.tone === "moss" ? (
+      {tone === "moss" ? (
         <MossComposition />
-      ) : slide.tone === "kodo" ? (
+      ) : tone === "kodo" ? (
         <KodoComposition />
       ) : (
-        <FilmComposition image={slide.image} />
+        <TsumuComposition />
       )}
     </div>
   );

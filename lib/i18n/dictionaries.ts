@@ -1,4 +1,5 @@
 import type { Dictionary, Locale } from "./types";
+import { homeEn, homeZh } from "./home";
 import { kodoPageEn, kodoPageZh } from "./kodo";
 import { mossPageEn, mossPageZh } from "./moss";
 import { tsumuPageEn, tsumuPageZh } from "./tsumu";
@@ -12,7 +13,14 @@ const zhTW: Dictionary = {
     films: "影片製作",
     studio: "關於我們",
     contact: "聯繫我們",
+    products: "產品",
+    articles: "文章",
+    about: "關於我們",
+    partner: "聯絡合作",
+    menuOpen: "開啟選單",
+    menuClose: "關閉選單",
   },
+  home: homeZh,
   locale: {
     zh: "中文",
     en: "EN",
@@ -361,7 +369,14 @@ const en: Dictionary = {
     films: "Films",
     studio: "About",
     contact: "Contact",
+    products: "Products",
+    articles: "Articles",
+    about: "About",
+    partner: "Contact",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
   },
+  home: homeEn,
   locale: {
     zh: "中文",
     en: "EN",
