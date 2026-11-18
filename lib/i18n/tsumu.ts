@@ -87,11 +87,16 @@ export const tsumuPageZh: Dictionary["tsumuPage"] = {
       },
     },
   },
+  companions: {
+    eyebrow: "COMPANIONS",
+    title: "路上的旅伴，陪你慢慢累積。",
+    description: "照顧資產的過程中，旅伴會一點一點出現，把圖鑑慢慢填滿。",
+  },
   story: {
     headline: "理財不只是數字，\n也是一段值得期待的旅程。",
     description: "和 TSUMU 一起，慢慢累積、穩穩成長，在自己的節奏中，走向更自由的未來。",
     worldAlt: "TSUMU 小島風景",
-    mascotAlt: "TSUMU 船長旅伴",
+    mascotAlt: "TSUMU 旅伴",
   },
   updates: {
     title: "最新更新",
@@ -256,12 +261,17 @@ export const tsumuPageEn: Dictionary["tsumuPage"] = {
       },
     },
   },
+  companions: {
+    eyebrow: "COMPANIONS",
+    title: "Companions that grow with you.",
+    description: "As you care for your assets, companions appear little by little and fill the collection.",
+  },
   story: {
     headline: "Finance is more than numbers —\nit's a journey worth looking forward to.",
     description:
       "With TSUMU, build up slowly, grow steadily, and move toward a freer future at your own pace.",
     worldAlt: "TSUMU island landscape",
-    mascotAlt: "TSUMU captain companion",
+    mascotAlt: "TSUMU companion",
   },
   updates: {
     title: "Latest updates",

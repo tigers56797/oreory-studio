@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HeroComposition } from "@/components/home/hero-composition";
+import { HolidayHolly } from "@/components/home/holiday-cheer";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Button } from "@/components/ui/button";
 import { homeHeroSlides, homeLinks, homeProducts, type HomeProductId } from "@/lib/content/home";
@@ -74,7 +75,11 @@ export function Hero() {
             <div className="absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,236,200,0.5),transparent_70%)] blur-2xl" />
             <span className="hero-float-orb absolute top-[14%] left-[46%] hidden h-6 w-6 rounded-full bg-[linear-gradient(135deg,#d9ccff,#fbd9c0)] opacity-80 lg:block" />
             <span className="hero-float-orb absolute bottom-[12%] left-[40%] hidden h-4 w-4 rounded-full bg-[linear-gradient(135deg,#c8ead4,#fff1c9)] opacity-90 [animation-delay:1.4s] lg:block" />
+            <span className="hero-float-orb absolute top-[22%] right-[18%] hidden h-3 w-3 rounded-full bg-[#d45555]/70 [animation-delay:0.6s] lg:block" />
+            <span className="hero-float-orb absolute top-[28%] right-[22%] hidden h-2.5 w-2.5 rounded-full bg-[#4fa46a]/75 [animation-delay:2s] lg:block" />
           </div>
+
+          <HolidayHolly className="pointer-events-none absolute top-4 right-4 z-10 h-10 w-10 opacity-90 sm:top-5 sm:right-6 sm:h-12 sm:w-12" />
 
           <div className="grid items-center gap-2 px-6 pt-10 pb-6 sm:px-10 sm:pt-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-4 lg:py-6 lg:pl-14 lg:pr-6">
             <div className="animate-fade-up relative z-10 max-w-xl lg:py-8">

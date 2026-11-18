@@ -29,7 +29,7 @@ export function TsumuStory() {
           <div className="grid min-h-[420px] items-end gap-4 px-6 py-8 sm:px-10 sm:py-10 lg:min-h-[360px] lg:grid-cols-2 lg:items-center lg:px-14">
             <div className="relative mx-auto aspect-square w-[150px] sm:w-[190px] lg:mx-0 lg:ml-6 lg:w-[220px] lg:self-end">
               <Image
-                src={tsumuMedia.mascotCaptain}
+                src={tsumuMedia.mascotSit}
                 alt={copy.mascotAlt}
                 fill
                 className="object-contain drop-shadow-[0_18px_28px_rgba(30,60,40,0.22)]"

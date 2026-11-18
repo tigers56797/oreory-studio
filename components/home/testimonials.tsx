@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { HolidayHolly } from "@/components/home/holiday-cheer";
 import { SectionHeading } from "@/components/home/section-heading";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
@@ -76,7 +77,8 @@ export function Testimonials() {
     "inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground shadow-soft transition-colors hover:border-border-strong";
 
   return (
-    <Section id="testimonials">
+    <Section id="testimonials" className="relative">
+      <HolidayHolly className="pointer-events-none absolute top-6 right-[10%] hidden h-9 w-9 rotate-12 opacity-75 lg:block" />
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-0">

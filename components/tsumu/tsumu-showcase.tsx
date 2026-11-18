@@ -85,7 +85,7 @@ export function TsumuShowcase() {
               return (
                 <li
                   key={key}
-                  className="w-[min(64vw,210px)] shrink-0 snap-start sm:w-[200px]"
+                  className="w-[min(68vw,230px)] shrink-0 snap-start sm:w-[220px]"
                 >
                   <article className="flex h-full flex-col items-center rounded-[1.5rem] border border-border bg-surface px-4 pt-4 pb-5 text-center shadow-soft">
                     <span className="rounded-full bg-[var(--tsumu-primary-soft)] px-3 py-1 text-[11px] font-medium text-[var(--tsumu-primary)]">
@@ -95,8 +95,8 @@ export function TsumuShowcase() {
                       src={tsumuMedia.showcase[key]}
                       alt={item.title}
                       pendingLabel={copy.pending}
-                      sizes="200px"
-                      className="mt-4 w-full max-w-[150px]"
+                      sizes="220px"
+                      className="mt-4 w-full max-w-[168px]"
                     />
                     <p className="mt-4 text-[13px] leading-relaxed text-foreground-muted">
                       {item.description}

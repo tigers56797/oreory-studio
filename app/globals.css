@@ -209,8 +209,58 @@ body {
   animation: collab-drift 16s ease-in-out infinite;
 }
 
+@keyframes holiday-fall {
+  0% {
+    transform: translate3d(0, -8vh, 0);
+  }
+  100% {
+    transform: translate3d(12px, 105vh, 0);
+  }
+}
+
+.holiday-flake {
+  animation-name: holiday-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes holiday-ornament-sway {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+
+.holiday-ornament {
+  transform-origin: top center;
+  animation: holiday-ornament-sway 3.8s ease-in-out infinite;
+}
+
+@keyframes holiday-sticker-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -7px;
+  }
+}
+
+.holiday-sticker {
+  animation: holiday-sticker-float 5.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .collab-drift {
+    animation: none;
+  }
+
+  .holiday-flake,
+  .holiday-ornament,
+  .holiday-sticker {
     animation: none;
   }
 }

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { HolidayHolly } from "@/components/home/holiday-cheer";
 import { SectionHeading } from "@/components/home/section-heading";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
@@ -31,7 +32,8 @@ export function Products() {
   const copy = dictionary.home.products;
 
   return (
-    <Section id="products">
+    <Section id="products" className="relative">
+      <HolidayHolly className="pointer-events-none absolute top-2 right-[8%] hidden h-10 w-10 rotate-[14deg] opacity-80 sm:block lg:right-[12%]" />
       <Container>
         <SectionHeading eyebrow={copy.eyebrow} title={copy.title} />
 

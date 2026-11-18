@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { HolidayHolly, HolidayOrnament } from "@/components/home/holiday-cheer";
 import { SectionHeading } from "@/components/home/section-heading";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
@@ -104,10 +105,12 @@ export function Articles() {
   const [featured, ...rest] = slots;
 
   return (
-    <Section id="articles">
+    <Section id="articles" className="relative">
+      <HolidayOrnament className="holiday-ornament pointer-events-none absolute top-4 right-[6%] hidden h-10 w-8 opacity-85 sm:block lg:right-[10%]" />
       <Container>
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.26fr)_minmax(0,0.74fr)] lg:gap-10">
-          <div>
+          <div className="relative">
+            <HolidayHolly className="pointer-events-none absolute -top-3 left-0 h-9 w-9 -rotate-12 opacity-80" />
             <SectionHeading eyebrow={copy.eyebrow} title={copy.title} />
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-foreground-muted">
               {copy.description}

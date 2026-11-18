@@ -2,6 +2,7 @@ import { Articles } from "@/components/home/articles";
 import { Collaboration } from "@/components/home/collaboration";
 import { Footer } from "@/components/home/footer";
 import { Hero } from "@/components/home/hero";
+import { HolidayCheer } from "@/components/home/holiday-cheer";
 import { Products } from "@/components/home/products";
 import { Stats } from "@/components/home/stats";
 import { Studio } from "@/components/home/studio";
@@ -10,7 +11,8 @@ import { Navbar } from "@/components/navbar/navbar";
 
 export default function HomePage() {
   return (
-    <>
+    <div className="relative">
+      <HolidayCheer />
       <Navbar />
       <main>
         <Hero />
@@ -22,6 +24,6 @@ export default function HomePage() {
         <Collaboration />
       </main>
       <Footer variant="dark" />
-    </>
+    </div>
   );
 }

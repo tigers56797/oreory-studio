@@ -27,7 +27,7 @@ export function TsumuPhoneFrame({
     <div
       className={`relative overflow-hidden rounded-[1.6rem] border-[5px] border-[#1f2a24] bg-[#1f2a24] shadow-[0_24px_50px_rgba(30,60,45,0.18)] ${className}`}
     >
-      <div className="relative aspect-[9/19] overflow-hidden rounded-[1.2rem] bg-[linear-gradient(170deg,var(--tsumu-sky)_0%,#ffffff_55%,var(--tsumu-primary-soft)_100%)]">
+      <div className="relative aspect-[9/21] overflow-hidden rounded-[1.2rem] bg-[linear-gradient(170deg,var(--tsumu-sky)_0%,#ffffff_55%,var(--tsumu-primary-soft)_100%)]">
         {src ? (
           <Image
             src={src}

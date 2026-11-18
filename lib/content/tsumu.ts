@@ -43,17 +43,29 @@ export const tsumuMedia = {
   logo: "/images/tsumu/logo.png",
   heroWorld: "/images/tsumu/world.png",
   storyWorld: "/images/tsumu/world-clean.png",
-  mascotExplorer: "/images/tsumu/mascot-explorer.webp",
-  mascotCaptain: "/images/tsumu/mascot-captain.webp",
-  heroScreen: "/images/tsumu/tsumua.png" as string | null,
+  /** Cream backpack bear — replaces the retired explorer mascot */
+  mascotExplorer: "/images/tsumu/animal-1.png",
+  /** Yellow-scarf bear — replaces the retired captain mascot */
+  mascotCaptain: "/images/tsumu/animal-2.png",
+  mascotSit: "/images/tsumu/animal-3.png",
+  companions: [
+    { id: "cream", src: "/images/tsumu/animal-1.png" },
+    { id: "yellow", src: "/images/tsumu/animal-2.png" },
+    { id: "blue", src: "/images/tsumu/animal-3.png" },
+    { id: "bibi", src: "/images/tsumu/mascot-bibi.png" },
+    { id: "mumu", src: "/images/tsumu/mascot-mumu.png" },
+    { id: "nuni", src: "/images/tsumu/mascot-nuni.png" },
+    { id: "popo", src: "/images/tsumu/mascot-popo.png" },
+    { id: "toto", src: "/images/tsumu/mascot-toto.png" },
+  ],
+  heroScreen: "/images/tsumu/tsumue.png" as string | null,
   /** Real app screenshots per showcase item; `null` renders the pending placeholder */
   showcase: {
     overview: "/images/tsumu/tsumub.png",
     growth: "/images/tsumu/tsumuc.png",
     compass: "/images/tsumu/tsumud.png",
-    island: "/images/tsumu/tsumua.png",
-    /** Companion screen — pending */
-    companion: null,
+    island: "/images/tsumu/tsumue.png",
+    companion: "/images/tsumu/tsumuf.png",
   } as Record<TsumuShowcaseKey, string | null>,
 } as const;
 

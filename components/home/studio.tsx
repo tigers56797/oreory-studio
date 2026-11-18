@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { HolidayOrnament } from "@/components/home/holiday-cheer";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -37,7 +38,8 @@ export function Studio() {
   const copy = dictionary.home.studio;
 
   return (
-    <Section id="studio">
+    <Section id="studio" className="relative">
+      <HolidayOrnament className="holiday-ornament pointer-events-none absolute top-8 left-[6%] hidden h-11 w-9 opacity-80 md:block" />
       <Container className="relative">
         <div
           aria-hidden

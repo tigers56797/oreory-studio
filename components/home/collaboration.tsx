@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { HolidayOrnament } from "@/components/home/holiday-cheer";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -59,6 +60,7 @@ export function Collaboration() {
                   sizes="192px"
                 />
               </div>
+              <HolidayOrnament className="holiday-ornament absolute -top-1 right-2 h-9 w-7 drop-shadow-[0_6px_10px_rgba(120,60,40,0.18)] lg:-top-2 lg:right-3 lg:h-10 lg:w-8" />
             </div>
 
             <div>

@@ -511,6 +511,11 @@ export type Dictionary = {
         { title: string; description: string }
       >;
     };
+    companions: {
+      eyebrow: string;
+      title: string;
+      description: string;
+    };
     story: {
       headline: string;
       description: string;

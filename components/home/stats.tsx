@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { HolidayHolly } from "@/components/home/holiday-cheer";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -93,6 +94,7 @@ export function Stats() {
                   className="object-contain drop-shadow-[0_10px_18px_rgba(40,60,40,0.14)]"
                   sizes="144px"
                 />
+                <HolidayHolly className="absolute -top-1 -right-1 h-8 w-8 rotate-[18deg] opacity-90" />
               </div>
             </div>
 

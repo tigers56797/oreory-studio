@@ -107,12 +107,12 @@ export function TsumuHero() {
               />
             </div>
 
-            <div className="soft-float absolute bottom-0 right-0 w-[27%] max-w-[170px] sm:right-2 lg:-right-4">
+            <div className="soft-float absolute bottom-0 right-0 w-[30%] max-w-[190px] sm:right-2 lg:-right-4">
               <TsumuPhoneFrame
                 src={tsumuMedia.heroScreen}
                 alt="TSUMU App"
                 pendingLabel={copy.screenPending}
-                sizes="170px"
+                sizes="190px"
                 priority
               />
             </div>

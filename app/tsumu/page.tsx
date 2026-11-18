@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/home/footer";
 import { Navbar } from "@/components/navbar/navbar";
+import { TsumuCompanions } from "@/components/tsumu/tsumu-companions";
 import { TsumuFeatures } from "@/components/tsumu/tsumu-features";
 import { TsumuHero } from "@/components/tsumu/tsumu-hero";
 import { TsumuProblem } from "@/components/tsumu/tsumu-problem";
@@ -27,6 +28,7 @@ export default function TsumuPage() {
         <TsumuProblem />
         <TsumuFeatures />
         <TsumuShowcase />
+        <TsumuCompanions />
         <TsumuStory />
         <TsumuUpdates />
         <TsumuVoices />
